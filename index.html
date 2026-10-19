@@ -20,6 +20,7 @@
 <meta name="twitter:image" content="https://motedb.github.io/logo-lockup.png">
 <meta name="theme-color" content="#0a0f16">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="llms-txt" href="llms.txt">
 <link rel="preload" as="image" href="logo-mark-dark.png">
 <script type="application/ld+json">
 {
@@ -498,6 +499,41 @@ db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
   </div>
 </section>
 
+<section id="ai">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="ai.tag">// AI-NATIVE</div>
+    <h2 class="reveal" data-i18n="ai.title">为 AI 栈而设计，也让 AI 读懂</h2>
+    <p class="lead reveal" data-i18n="ai.lead">具身智能的下游就是 AI：语义检索、训练管线、智能体。MoteDB 把这些做进产品，而不是留给用户拼装。</p>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3 data-i18n="ai.c1.t">混合检索 (RRF 融合)</h3>
+        <p data-i18n="ai.c1.d">BM25 关键词 × 向量语义，Reciprocal Rank Fusion 一次调用完成——语义查询开箱即用，无需自己实现排序融合。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3 data-i18n="ai.c2.t">Arrow 直通训练管线</h3>
+        <p data-i18n="ai.c2.d"><code>query_arrow()</code> 返回规范 pyarrow.Table——向量列为 <code>FixedSizeList&lt;float32&gt;</code>，零拷贝对接 PyTorch/DataLoader。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></div>
+        <h3 data-i18n="ai.c3.t">对 AI 可读</h3>
+        <p data-i18n="ai.c3.d"><a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。</p>
+      </div>
+    </div>
+    <div class="term2 reveal">
+      <div class="bar"><i></i><i></i><i></i><span class="t">ai-stack.py</span></div>
+      <pre><span class="c"># 语义混合检索: BM25 × KNN, RRF 融合</span>
+res = db.hybrid_search(<span class="s">"docs_body"</span>, <span class="s">"joint calibration"</span>,
+                       <span class="s">"docs_emb"</span>, [<span class="n">0.1</span>,<span class="n">0.4</span>,<span class="n">0.2</span>,<span class="n">0.9</span>], k=<span class="n">10</span>)
+
+<span class="c"># 结果直通 Arrow → 训练管线零转换</span>
+tbl = db.query_arrow(<span class="s">"SELECT ts, sid, emb FROM poses"</span>)
+<span class="c"># tbl 列向量即 FixedSizeList&lt;float32&gt; — 可直接喂给 DataLoader</span></pre>
+    </div>
+  </div>
+</section>
+
 <section id="quickstart">
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="q.tag">// QUICKSTART</div>
@@ -685,6 +721,14 @@ const I18N = {
     'ql.q4':'50 表 checkpoint, 表数平坦化 (原 42ms 线性)',
     'ql.q5':'崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁',
     'ql.q6':'预构建逐平台冒烟 — 交叉编译产物经真实加载验证',
+    'ai.tag':'// AI-NATIVE','ai.title':'为 AI 栈而设计，也让 AI 读懂',
+    'ai.lead':'具身智能的下游就是 AI：语义检索、训练管线、智能体。MoteDB 把这些做进产品，而不是留给用户拼装。',
+    'ai.c1.t':'混合检索 (RRF 融合)',
+    'ai.c1.d':'BM25 关键词 × 向量语义，Reciprocal Rank Fusion 一次调用完成——语义查询开箱即用，无需自己实现排序融合。',
+    'ai.c2.t':'Arrow 直通训练管线',
+    'ai.c2.d':'<code>query_arrow()</code> 返回规范 pyarrow.Table——向量列为 <code>FixedSizeList&lt;float32&gt;</code>，零拷贝对接 PyTorch/DataLoader。',
+    'ai.c3.t':'对 AI 可读',
+    'ai.c3.d':'<a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。',
     'dc.tag':'// DOCS','dc.title':'文档','dc.lead':'全部随仓库维护, 与代码同版本。',
     'dc.d1':'SQL 支持一览','dc.d1s':'支持的语句与函数全集',
     'dc.d2':'SQL 操作手册','dc.d2s':'CRUD / 事务 / 索引操作细则',
@@ -745,6 +789,14 @@ const I18N = {
     'ql.q4':'50-table checkpoint, flat in table count (was 42ms linear)',
     'ql.q5':'crash injection · differential fuzz · corruption recovery · perf-gate budgets',
     'ql.q6':'prebuilt binaries smoke-tested per platform — cross-compiled outputs load-tested for real',
+    'ai.tag':'// AI-NATIVE','ai.title':'Designed for the AI stack — and readable by AI',
+    'ai.lead':'The downstream of embodied intelligence is AI: semantic retrieval, training pipelines, agents. MoteDB builds these in rather than leaving them to the user.',
+    'ai.c1.t':'Hybrid retrieval (RRF fusion)',
+    'ai.c1.d':'BM25 keywords × vector semantics fused by Reciprocal Rank Fusion in one call — semantic query out of the box, no custom rank-merging.',
+    'ai.c2.t':'Arrow straight to training pipelines',
+    'ai.c2.d':'<code>query_arrow()</code> returns a canonical pyarrow.Table — vector columns as <code>FixedSizeList&lt;float32&gt;</code>, zero-copy into PyTorch/DataLoader.',
+    'ai.c3.t':'Readable by AI',
+    'ai.c3.d':'<a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD structured data + a machine-readable capability manifest — LLMs, agents and AI search can accurately answer "can MoteDB do X".',
     'dc.tag':'// DOCS','dc.title':'Documentation','dc.lead':'Maintained in-repository, versioned with the code.',
     'dc.d1':'SQL support','dc.d1s':'Full statement and function reference',
     'dc.d2':'SQL operations guide','dc.d2s':'CRUD / transactions / index details',
