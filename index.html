@@ -244,6 +244,34 @@
   .card p,.card p code,.hero p.sub{overflow-wrap:break-word}
 
   /* 对比表: 窄屏滑动提示 */
+  /* 对比表: 最小宽 + 容器横滚 (窄屏不挤压) */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+  table.cmp{width:100%;min-width:640px;border-collapse:collapse;font-size:14px}
+  table.cmp th{background:var(--card2);padding:14px 16px;text-align:left;font-weight:700;color:var(--txt);border-bottom:1px solid var(--line2)}
+  table.cmp th.hl{color:var(--orange2);background:rgba(255,138,43,.07)}
+  table.cmp td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--dim)}
+  table.cmp tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--txt);font-weight:600}
+  table.cmp .yes{color:#3fd68f;font-weight:700}
+  table.cmp .part{color:#e5b456;font-weight:600}
+  table.cmp .no{color:#e5566d;font-weight:700}
+  .cmp-note{font-size:12px;color:var(--faint);margin-top:12px}
+
+  /* 质量卡: 能量条 + 渐变数字 */
+  .qcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 22px 22px 26px;overflow:hidden;transition:border-color .18s,transform .18s,box-shadow .18s}
+  .qcard::before{content:'';position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;
+    background:linear-gradient(180deg,var(--orange),transparent);opacity:.85}
+  .qcard:hover{border-color:#31465f;transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+  .qcard b{display:block;font-size:24px;font-family:var(--mono);font-weight:800;margin-bottom:6px;
+    background:linear-gradient(90deg,var(--orange2),#ffd9ad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .qcard span{font-size:13.5px;color:var(--dim)}
+
+  /* 特性卡: 顶部渐变线 (悬停点亮) */
+  .card .topline{position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0;
+    background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0;transition:opacity .2s}
+  .card:hover .topline{opacity:.9}
+
   .cmp-hint{display:none;color:var(--faint);font-size:12.5px;margin-top:10px;font-family:var(--mono)}
   @media(max-width:760px){.cmp-hint{display:block}}
 
