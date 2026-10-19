@@ -272,9 +272,12 @@
     background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0;transition:opacity .2s}
   .card:hover .topline{opacity:.9}
 
-  /* hero 光斑定位 (品牌橙/蓝 双色) */
+  /* hero 光斑: 脱离文档流的呼吸光斑 (品牌橙/蓝 双色) */
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none;
+    animation:drift 20s ease-in-out infinite alternate}
   .orb.o1{width:440px;height:440px;top:-140px;right:-100px;background:radial-gradient(circle,rgba(255,138,43,.15),transparent 65%)}
   .orb.o2{width:380px;height:380px;bottom:-120px;left:-80px;background:radial-gradient(circle,rgba(74,158,255,.12),transparent 65%);animation-delay:-22s}
+  @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(46px,34px) scale(1.09)}}
 
   /* 文档卡片 */
   .doc-link{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
