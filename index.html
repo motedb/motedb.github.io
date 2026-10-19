@@ -867,6 +867,34 @@ const cio = new IntersectionObserver(es => {
 }, { threshold: 0.6 });
 document.querySelectorAll('.cnt').forEach(el => cio.observe(el));
 
+/* ── capability tabs ── */
+const CAP_FILES = {
+  'cap-vec':'knn.sql', 'cap-ts':'time_bucket.sql', 'cap-fts':'hybrid.py',
+  'cap-blob':'mcap.sql', 'cap-snap':'shipping.sql'
+};
+function showCap(ev, id){
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  const pane = document.getElementById(id);
+  if (pane) pane.classList.add('on');
+  ev.currentTarget.classList.add('on');
+  const f = document.getElementById('cap-file');
+  if (f) f.textContent = CAP_FILES[id] || 'query.sql';
+}
+
+/* ── hero mark parallax ── */
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const hm = document.getElementById('heroMark'), hero = document.querySelector('.hero');
+  if (!hm || !hero) return;
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    const dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
+    hm.style.transform = `translate(${dx*14}px, ${dy*10}px)`;
+  });
+  hero.addEventListener('mouseleave', () => { hm.style.transform = ''; });
+})();
+
 </script>
 </body>
 </html>
