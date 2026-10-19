@@ -128,6 +128,9 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;position:relative;overflow:hidden;
     transition:border-color .18s,box-shadow .18s;transform-style:preserve-3d;will-change:transform}
+  .card .topline{position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0;
+    background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0;transition:opacity .2s}
+  .card:hover .topline{opacity:.9}
   .card::before{content:'';position:absolute;inset:0;background:radial-gradient(400px 140px at var(--mx,50%) var(--my,0%),rgba(255,138,43,.08),transparent 60%);opacity:0;transition:opacity .2s;pointer-events:none}
   .card:hover{border-color:#31465f;box-shadow:0 12px 32px rgba(0,0,0,.35)}
   .card:hover::before{opacity:1}
@@ -256,13 +259,18 @@
   .cmp-note{font-size:12px;color:var(--faint);margin-top:12px}
 
   /* quality band */
-  .qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .qcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .qcard b{display:block;font-size:22px;font-family:var(--mono);color:var(--orange2);margin-bottom:6px}
+  .qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .qcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px 22px 22px 26px;overflow:hidden;transition:border-color .18s,transform .18s,box-shadow .18s}
+  .qcard::before{content:'';position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;
+    background:linear-gradient(180deg,var(--orange),transparent);opacity:.85}
+  .qcard:hover{border-color:#31465f;transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+  .qcard b{display:block;font-size:24px;font-family:var(--mono);font-weight:800;margin-bottom:6px;
+    background:linear-gradient(90deg,var(--orange2),#ffd9ad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .qcard span{font-size:13.5px;color:var(--dim)}
 
   /* docs links */
-  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
   .doc-link{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;transition:border-color .15s,transform .15s}
   .doc-link:hover{border-color:#31465f;transform:translateY(-2px)}
   .doc-link .d-ic{width:34px;height:34px;flex:none;border-radius:8px;background:rgba(255,138,43,.1);border:1px solid rgba(255,138,43,.25);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--orange2);font-weight:700}
@@ -352,31 +360,37 @@
     <p class="lead reveal" data-i18n="ft.lead">不是通用数据库的裁剪版——每个能力都对着机器人数据的真实形状设计。</p>
     <div class="grid">
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7 7.5l3.5 8M17 7.5l-3.5 8M7.5 6h9"/></svg></div>
         <h3 data-i18n="f1.t">多模态原生</h3>
         <p data-i18n="f1.d"><code>VECTOR(n)</code> 向量列带索引 KNN、<code>BLOB</code> 字节等值、全文检索与 <code>TIME_BUCKET</code> 时序聚合——同一个 SQL 引擎，同一个事务视图。</p>
       </div>
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 11L4 6.5M12 11l8-4.5M12 11v9"/></svg></div>
         <h3 data-i18n="f2.t">三种形态一种体验</h3>
         <p data-i18n="f2.d">采集期是高性能目录，运输期是单文件快照（CRC 校验 + zstd），部署期是只读容器直开——<code>EXPORT DB</code> 一条 SQL 串联。</p>
       </div>
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 12l5-5M22 2l-5 5"/></svg></div>
         <h3 data-i18n="f3.t">嵌入式零运维</h3>
         <p data-i18n="f3.d">无服务、无端口、无独立进程。库文件即数据库，索引损坏自动从源数据重建，打开即用。</p>
       </div>
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
         <h3 data-i18n="f4.t">断电安全内核</h3>
         <p data-i18n="f4.d">temp+fsync+rename 原子发布、WAL 组提交、孤儿段领养、崩溃注入与差分模糊测试持续验证——边缘设备的拔电是常态而非异常。</p>
       </div>
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
         <h3 data-i18n="f5.t">五平台预构建</h3>
         <p data-i18n="f5.d">macOS (arm64/x64)、Linux (x64/arm64)、Windows 的官方二进制直接安装——交叉编译与冒烟测试在 CI 里逐平台验证。</p>
       </div>
       <div class="card reveal">
+        <div class="topline"></div>
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
         <h3 data-i18n="f6.t">舰队友好</h3>
         <p data-i18n="f6.d">快照增量重导出、只读容器多读者共存、单调行号空间——为"一台指挥、百台采集"的机器人舰队同步而设计。</p>
