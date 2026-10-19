@@ -272,6 +272,20 @@
     background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0;transition:opacity .2s}
   .card:hover .topline{opacity:.9}
 
+  /* hero 光斑定位 (品牌橙/蓝 双色) */
+  .orb.o1{width:440px;height:440px;top:-140px;right:-100px;background:radial-gradient(circle,rgba(255,138,43,.15),transparent 65%)}
+  .orb.o2{width:380px;height:380px;bottom:-120px;left:-80px;background:radial-gradient(circle,rgba(74,158,255,.12),transparent 65%);animation-delay:-22s}
+
+  /* 文档卡片 */
+  .doc-link{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px 20px;transition:border-color .15s,transform .15s}
+  .doc-link:hover{border-color:#31465f;transform:translateY(-2px)}
+  .d-ic{width:36px;height:36px;flex:none;border-radius:9px;background:rgba(255,138,43,.1);
+    border:1px solid rgba(255,138,43,.25);display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;color:var(--orange2);font-weight:700}
+  .doc-link b{display:block;color:var(--txt);font-size:14.5px}
+  .doc-link span{font-size:12.5px;color:var(--faint)}
+
   .cmp-hint{display:none;color:var(--faint);font-size:12.5px;margin-top:10px;font-family:var(--mono)}
   @media(max-width:760px){.cmp-hint{display:block}}
 
