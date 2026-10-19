@@ -44,7 +44,7 @@
     --txt:#e8eef5; --dim:#93a3b8; --faint:#5d6f85;
     --orange:#ff8a2b; --orange2:#ffb066; --navy:#1b3a5f;
     --glow-o:rgba(255,138,43,.35);
-    --mono:'SF Mono','Cascadia Code',Consolas,'JetBrains Mono',monospace;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Cascadia Code','JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -176,6 +176,8 @@
   @keyframes blink{50%{opacity:0}}
 
   .sdk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px}
+  .qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px}
+  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:14px}
   .sdk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;transition:border-color .15s,transform .15s}
   .sdk:hover{border-color:#31465f;transform:translateY(-2px)}
   .sdk .lang{font-family:var(--mono);font-size:12px;color:var(--orange2);letter-spacing:1px;font-weight:600}
@@ -217,7 +219,8 @@
     .nav-links button.lang{width:100%;text-align:left;border-bottom:none}
     section{padding:56px 0}
     .card p code{overflow-wrap:anywhere}
-    .term pre{min-height:270px}
+    .term pre{min-height:270px;font-size:12px;padding:14px}
+    .ekg-bg{opacity:.32}
     .lead{margin-bottom:32px}
     .hero{padding-top:48px}
   }
@@ -236,6 +239,7 @@
   .term2 .bar i:first-child{background:#e5566d}.term2 .bar i:nth-child(2){background:#e5b456}.term2 .bar i:nth-child(3){background:#3fd68f}
   .term2 .bar .t{margin-left:8px;color:var(--faint);font-size:11.5px}
   .term2 pre{padding:18px;overflow-x:auto;line-height:1.75;color:#c9d6e2;margin:0}
+  @media(max-width:760px){.term2 pre{font-size:12px;padding:14px}}
   .term2 .c{color:#5d7189}.term2 .k{color:#c792ea}.term2 .s{color:#8fd6a8}.term2 .f{color:#6fb3ff}.term2 .n{color:#e5b456}
   .cap-note{font-size:12.5px;color:var(--faint);margin-top:14px;font-family:var(--mono)}
 
