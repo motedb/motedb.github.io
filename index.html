@@ -204,6 +204,28 @@
   }
   @media(max-width:900px){.hero{padding-top:64px}}
 
+  /* hero 入场瀑布 */
+  .hero .ver-badge,.hero h1,.hero p.sub,.hero .installs,.hero .hero-ctas{
+    opacity:0;transform:translateY(18px);
+    animation:hero-in .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero .ver-badge{animation-delay:.05s}
+  .hero h1{animation-delay:.16s}
+  .hero p.sub{animation-delay:.3s}
+  .hero .installs{animation-delay:.44s}
+  .hero .hero-ctas{animation-delay:.58s}
+  @keyframes hero-in{to{opacity:1;transform:none}}
+  /* h1 渐变流光 */
+  h1 em{background-size:200% 100%;animation:shine 5s ease-in-out infinite}
+  @keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+  /* 卡片微交互 */
+  .card .ic{transition:transform .25s,box-shadow .25s}
+  .card:hover .ic{transform:scale(1.14) rotate(-5deg);box-shadow:0 0 18px rgba(255,138,43,.35)}
+  .card::after{content:'';position:absolute;top:0;left:-80%;width:45%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.05) 40%,rgba(255,138,43,.09) 55%,transparent);
+    transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+  .card:hover::after{left:135%}
+
   /* tabs (capability showcase) */
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .tab-btn{font-family:var(--mono);font-size:12.5px;padding:8px 16px;border-radius:8px;border:1px solid var(--line2);
@@ -295,8 +317,8 @@
   <div class="wrap">
     <div>
       <span class="ver-badge"><span class="dot"></span><span data-i18n="hero.badge">v0.15.0 · MIT 开源 · 正式发布</span></span>
-      <h1><span data-i18n="hero.t1">具身智能的</span><br><em data-i18n="hero.t2">多模态嵌入式数据库</em></h1>
-      <p class="sub" data-i18n="hero.sub">一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>。从机器人数据采集到舰队分发——嵌入式零运维，打开即用。</p>
+      <h1><span data-i18n="hero.t1">让机器人的记忆</span><br><em data-i18n="hero.t2">有了心跳</em></h1>
+      <p class="sub" data-i18n="hero.sub">MoteDB —— 具身智能的<b>多模态嵌入式数据库</b>：一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。</p>
       <div class="installs">
         <div class="inst"><span class="tag">RUST</span><code><span class="p">cargo</span> add motedb</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
         <div class="inst"><span class="tag">PYTHON</span><code><span class="p">pip</span> install motedb-python</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
@@ -602,8 +624,8 @@ const I18N = {
   zh: {
     'nav.f':'特性','nav.a':'架构','nav.q':'快速开始','nav.s':'SDK',
     'hero.badge':'v0.15.0 · MIT 开源 · 正式发布',
-    'hero.t1':'具身智能的','hero.t2':'多模态嵌入式数据库',
-    'hero.sub':'一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>。从机器人数据采集到舰队分发——嵌入式零运维，打开即用。',
+    'hero.t1':'让机器人的记忆','hero.t2':'有了心跳',
+    'hero.sub':'MoteDB —— 具身智能的<b>多模态嵌入式数据库</b>：一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。',
     'npm.soon':'发布配置中','hero.cta1':'5 分钟上手','hero.cta2':'查看源码',
     'st.1':'引擎 · 三种形态','st.2':'官方 SDK','st.3':'平台预构建二进制','st.4':'模态：向量/时序/文本/BLOB','st.5':'轮独立发布审计',
     'ft.tag':'// FEATURES','ft.title':'为具身 AI 工作负载而生',
@@ -662,8 +684,8 @@ const I18N = {
   en: {
     'nav.f':'Features','nav.a':'Architecture','nav.q':'Quickstart','nav.s':'SDK',
     'hero.badge':'v0.15.0 · MIT · Generally available',
-    'hero.t1':'The multimodal embedded database','hero.t2':'for embodied intelligence',
-    'hero.sub':'One SQL engine natively carrying <b>vectors · time series · text · binary</b>. From robot data capture to fleet distribution — embedded, zero-ops, ready on open.',
+    'hero.t1':'Robot memories,','hero.t2':'with a heartbeat',
+    'hero.sub':'MoteDB — the <b>multimodal embedded database</b> for embodied intelligence. One SQL engine natively carrying <b>vectors · time series · text · binary</b>, from capture to fleet distribution — embedded, zero-ops, ready on open.',
     'npm.soon':'coming soon','hero.cta1':'Get started in 5 min','hero.cta2':'View source',
     'st.1':'engine · three forms','st.2':'official SDKs','st.3':'prebuilt platforms','st.4':'modalities: vector/ts/text/BLOB','st.5':'independent release audits',
     'ft.tag':'// FEATURES','ft.title':'Built for embodied-AI workloads',
@@ -750,9 +772,21 @@ function cp(btn){
 
 /* ── scroll reveal ── */
 const io = new IntersectionObserver(es => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    // 瀑布流延迟只在入场时生效 — 展示完立即清除, 保证悬停过渡零延迟
+    setTimeout(() => { e.target.style.transitionDelay = ''; }, 1200);
+    io.unobserve(e.target);
+  });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// 同组瀑布流: 按兄弟序加权入场延迟
+document.querySelectorAll('.grid,.qgrid,.sdk-grid,.life,.demo ul').forEach(group => {
+  Array.from(group.children).forEach((el, i) => {
+    if (el.classList.contains('reveal')) el.style.transitionDelay = (i * 90) + 'ms';
+  });
+});
 
 /* ── stat counters ── */
 const cio = new IntersectionObserver(es => {
