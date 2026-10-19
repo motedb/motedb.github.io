@@ -216,11 +216,32 @@
     .nav-links a.nav-gh{border-bottom:none}
     .nav-links button.lang{width:100%;text-align:left;border-bottom:none}
     section{padding:56px 0}
-    .strip .wrap{padding:20px 24px}
+    .card p code{overflow-wrap:anywhere}
     .term pre{min-height:270px}
     .lead{margin-bottom:32px}
     .hero{padding-top:48px}
   }
+
+  /* 能力标签页 */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .tab-btn{font-family:var(--mono);font-size:12.5px;padding:8px 16px;border-radius:8px;border:1px solid var(--line2);
+    background:transparent;color:var(--dim);cursor:pointer;transition:all .15s;font-weight:600}
+  .tab-btn:hover{color:var(--txt);border-color:#31465f}
+  .tab-btn.on{background:rgba(255,138,43,.1);border-color:var(--orange);color:var(--orange2)}
+  .tab-pane{display:none}
+  .tab-pane.on{display:block}
+  .term2{background:#0a101a;border:1px solid var(--line2);border-radius:14px;font-family:var(--mono);font-size:13px;overflow:hidden;max-width:100%}
+  .term2 .bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line2);align-items:center}
+  .term2 .bar i{width:11px;height:11px;border-radius:50%;background:#263449}
+  .term2 .bar i:first-child{background:#e5566d}.term2 .bar i:nth-child(2){background:#e5b456}.term2 .bar i:nth-child(3){background:#3fd68f}
+  .term2 .bar .t{margin-left:8px;color:var(--faint);font-size:11.5px}
+  .term2 pre{padding:18px;overflow-x:auto;line-height:1.75;color:#c9d6e2;margin:0}
+  .term2 .c{color:#5d7189}.term2 .k{color:#c792ea}.term2 .s{color:#8fd6a8}.term2 .f{color:#6fb3ff}.term2 .n{color:#e5b456}
+  .cap-note{font-size:12.5px;color:var(--faint);margin-top:14px;font-family:var(--mono)}
+
+  /* 网格子项防溢出 (长代码/长单词不再撑破布局) */
+  .grid>*,.sdk-grid>*,.qgrid>*,.docs-grid>*,.life>*,.demo>*{min-width:0}
+  .card p,.card p code,.hero p.sub{overflow-wrap:break-word}
 
   /* 对比表: 窄屏滑动提示 */
   .cmp-hint{display:none;color:var(--faint);font-size:12.5px;margin-top:10px;font-family:var(--mono)}
