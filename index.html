@@ -203,6 +203,50 @@
     #pcv{display:none}
   }
   @media(max-width:900px){.hero{padding-top:64px}}
+
+  /* tabs (capability showcase) */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .tab-btn{font-family:var(--mono);font-size:12.5px;padding:8px 16px;border-radius:8px;border:1px solid var(--line2);
+    background:transparent;color:var(--dim);cursor:pointer;transition:all .15s;font-weight:600}
+  .tab-btn:hover{color:var(--txt);border-color:#31465f}
+  .tab-btn.on{background:rgba(255,138,43,.1);border-color:var(--orange);color:var(--orange2)}
+  .tab-pane{display:none}
+  .tab-pane.on{display:block}
+  .term2{background:#0a101a;border:1px solid var(--line2);border-radius:14px;font-family:var(--mono);font-size:13px;overflow:hidden}
+  .term2 .bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line2);align-items:center}
+  .term2 .bar i{width:11px;height:11px;border-radius:50%;background:#263449}
+  .term2 .bar i:first-child{background:#e5566d}.term2 .bar i:nth-child(2){background:#e5b456}.term2 .bar i:nth-child(3){background:#3fd68f}
+  .term2 pre{padding:18px;overflow-x:auto;line-height:1.75;color:#c9d6e2;margin:0;min-height:230px}
+  .term2 .c{color:#5d7189}.term2 .k{color:#c792ea}.term2 .s{color:#8fd6a8}.term2 .f{color:#6fb3ff}.term2 .n{color:#e5b456}
+  .cap-note{font-size:12.5px;color:var(--faint);margin-top:14px;font-family:var(--mono)}
+
+  /* compare table */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+  table.cmp th{background:var(--card2);padding:14px 16px;text-align:left;font-weight:700;color:var(--txt);border-bottom:1px solid var(--line2)}
+  table.cmp th.hl{color:var(--orange2);background:rgba(255,138,43,.07)}
+  table.cmp td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--dim)}
+  table.cmp tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--txt);font-weight:600}
+  table.cmp .yes{color:#3fd68f;font-weight:700}
+  table.cmp .part{color:#e5b456;font-weight:600}
+  table.cmp .no{color:#e5566d;font-weight:700}
+  .cmp-note{font-size:12px;color:var(--faint);margin-top:12px}
+
+  /* quality band */
+  .qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .qcard b{display:block;font-size:22px;font-family:var(--mono);color:var(--orange2);margin-bottom:6px}
+  .qcard span{font-size:13.5px;color:var(--dim)}
+
+  /* docs links */
+  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .doc-link{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;transition:border-color .15s,transform .15s}
+  .doc-link:hover{border-color:#31465f;transform:translateY(-2px)}
+  .doc-link .d-ic{width:34px;height:34px;flex:none;border-radius:8px;background:rgba(255,138,43,.1);border:1px solid rgba(255,138,43,.25);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--orange2);font-weight:700}
+  .doc-link b{display:block;color:var(--txt);font-size:14px}
+  .doc-link span{font-size:12.5px;color:var(--faint)}
+  @media(max-width:900px){.hero{padding-top:64px}}
 </style>
 </head>
 <body>
@@ -219,6 +263,7 @@
       <a href="#lifecycle" data-i18n="nav.a">架构</a>
       <a href="#quickstart" data-i18n="nav.q">快速开始</a>
       <a href="#sdks" data-i18n="nav.s">SDK</a>
+      <a href="https://github.com/motedb/motedb/tree/main/docs" target="_blank" rel="noopener" data-i18n="nav.d">文档</a>
       <button class="lang" id="langBtn" onclick="toggleLang()">EN</button>
       <a class="nav-gh" href="https://github.com/motedb/motedb" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
@@ -318,6 +363,51 @@
   </div>
 </section>
 
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="cap.tag">// CAPABILITIES</div>
+    <h2 class="reveal" data-i18n="cap.title">一套 SQL，查询所有模态</h2>
+    <p class="lead reveal" data-i18n="cap.lead">向量、时序、全文、二进制不是四个数据库——是一张表里的四种列。真实的查询长这样：</p>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab-btn on" onclick="showCap(event,'cap-vec')" data-i18n="cap.t1">向量 KNN</button>
+      <button class="tab-btn" onclick="showCap(event,'cap-ts')" data-i18n="cap.t2">时序窗口</button>
+      <button class="tab-btn" onclick="showCap(event,'cap-fts')" data-i18n="cap.t3">全文 + 向量混合</button>
+      <button class="tab-btn" onclick="showCap(event,'cap-blob')" data-i18n="cap.t4">BLOB / MCAP</button>
+      <button class="tab-btn" onclick="showCap(event,'cap-snap')" data-i18n="cap.t5">快照运输</button>
+    </div>
+    <div class="term2 reveal">
+      <div class="bar"><i></i><i></i><i></i><span class="t" id="cap-file">knn.sql</span></div>
+      <div class="tab-pane on" id="cap-vec"><pre><span class="c">-- 位姿表中语义最近的 5 条 (索引加速)</span>
+<span class="k">SELECT</span> ts, sid <span class="k">FROM</span> poses
+<span class="k">ORDER BY</span> emb &lt;-&gt; [<span class="n">0.1</span>, <span class="n">0.2</span>, <span class="n">0.3</span>, <span class="n">0.4</span>]
+<span class="k">LIMIT</span> <span class="n">5</span>;</pre></div>
+      <div class="tab-pane" id="cap-ts"><pre><span class="c">-- 60 秒窗口聚合 + 自动 TTL 过期</span>
+<span class="k">SELECT</span> TIME_BUCKET(<span class="s">'60s'</span>, ts) <span class="k">AS</span> bucket,
+       <span class="f">AVG</span>(v), <span class="f">MAX</span>(v)
+<span class="k">FROM</span> poses <span class="k">GROUP BY</span> bucket;
+
+<span class="k">ALTER TABLE</span> poses <span class="k">SET</span> TTL = <span class="s">'30d'</span>;</pre></div>
+      <div class="tab-pane" id="cap-fts"><pre><span class="c">-- 混合检索: 全文 (BM25) × 向量 (KNN) RRF 融合</span>
+db.hybrid_search(
+  <span class="s">"docs_body"</span>,            <span class="c"># 全文索引</span>
+  <span class="s">"joint calibration"</span>,    <span class="c"># 文本查询</span>
+  <span class="s">"docs_emb"</span>,             <span class="c"># 向量列</span>
+  [<span class="n">0.1</span>, <span class="n">0.4</span>, <span class="n">0.2</span>, <span class="n">0.9</span>], k=<span class="n">10</span>)</pre></div>
+      <div class="tab-pane" id="cap-blob"><pre><span class="c">-- BLOB 字节等值 + MCAP 一次性导入</span>
+<span class="k">SELECT</span> id <span class="k">FROM</span> frames
+<span class="k">WHERE</span> payload = X<span class="s">'DEADBEEF'</span>;
+
+<span class="k">IMPORT MCAP</span> <span class="s">'session_2026_10_17.mcap'</span>;</pre></div>
+      <div class="tab-pane" id="cap-snap"><pre><span class="c">-- 整库 → 单文件 (CRC 校验 + zstd)</span>
+<span class="k">EXPORT DB TO</span> <span class="s">'fleet.mote'</span> COMPRESSED;
+
+<span class="c">-- 部署侧: 只读打开, 多读者共存</span>
+db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
+    </div>
+    <p class="cap-note reveal" data-i18n="cap.note">// 以上均为真实语法 — 与仓库测试同源, 非示意</p>
+  </div>
+</section>
+
 <section id="lifecycle" class="alt">
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="lf.tag">// ARCHITECTURE</div>
@@ -345,6 +435,32 @@
         <div class="f">open_readonly("snap.mote")</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="why.tag">// WHY MOTEDB</div>
+    <h2 class="reveal" data-i18n="why.title">为什么不用"拼一个"</h2>
+    <p class="lead reveal" data-i18n="why.lead">向量用扩展、时序靠手写、文本再装一个——三个存储、三种一致性、三份运维。MoteDB 把它们放回同一张表。</p>
+    <div class="cmp-wrap reveal">
+      <table class="cmp">
+        <tr>
+          <th data-i18n="why.h1">能力</th>
+          <th class="hl">MoteDB</th>
+          <th data-i18n="why.h2">通用嵌入式 + 扩展拼装</th>
+          <th data-i18n="why.h3">文件 + 自研脚本</th>
+        </tr>
+        <tr><td data-i18n="why.r1">向量 KNN (索引加速)</td><td class="yes">●</td><td class="part">▲ 扩展</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r2">时序语义 (TIME_BUCKET / TTL / LATEST BY)</td><td class="yes">●</td><td class="part">▲ 手写 SQL</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r3">全文检索 (BM25 + snippet)</td><td class="yes">●</td><td class="yes">● FTS5</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r4">多模态同一事务视图</td><td class="yes">●</td><td class="no">— 跨扩展无事务</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r5">单文件快照 (CRC + zstd + 增量)</td><td class="yes">●</td><td class="no">— 手动拷贝</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r6">只读容器部署 (多读者)</td><td class="yes">●</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r7">断电安全 (崩溃注入验证)</td><td class="yes">●</td><td class="part">▲ 取决于实现</td><td class="part">▲ 取决于实现</td></tr>
+      </table>
+    </div>
+    <p class="cmp-note reveal" data-i18n="why.note">* 对比基于各产品公开能力与本仓库可复现验证, 2026-10。● 完整支持 · ▲ 部分/需组装 · — 不支持</p>
   </div>
 </section>
 
@@ -381,6 +497,22 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
   </div>
 </section>
 
+<section id="quality">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="ql.tag">// ENGINEERING</div>
+    <h2 class="reveal" data-i18n="ql.title">为边缘设备写的每一行, 都按内核标准验证</h2>
+    <p class="lead reveal" data-i18n="ql.lead">嵌入式的故障不可回滚、不可远程修复。所以发布前要过的是这些——不是营销数字, 是仓库里可复现的门禁。</p>
+    <div class="qgrid">
+      <div class="qcard reveal"><b>3 × 10</b><span data-i18n="ql.q1">轮独立发布审计 · 修复 10 项问题 (含 2 项 10 万行级存量 bug)</span></div>
+      <div class="qcard reveal"><b>0</b><span data-i18n="ql.q2">clippy 告警 · 全目标 (lib/tests/examples) 零警告</span></div>
+      <div class="qcard reveal"><b>4.4×</b><span data-i18n="ql.q3">打开提速 (50 表库 77ms → 17.6ms, 有界常量)</span></div>
+      <div class="qcard reveal"><b>24.6ms</b><span data-i18n="ql.q4">50 表 checkpoint, 表数平坦化 (原 42ms 线性)</span></div>
+      <div class="qcard reveal"><b>CI 矩阵</b><span data-i18n="ql.q5">崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁</span></div>
+      <div class="qcard reveal"><b>5 平台</b><span data-i18n="ql.q6">预构建逐平台冒烟 — 交叉编译产物经真实加载验证</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="sdks" class="alt">
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="sk.tag">// SDK</div>
@@ -405,6 +537,34 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
         <div class="cmd"><span>npm install motedb</span><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
         <a class="more" href="https://github.com/motedb/motedb" target="_blank" rel="noopener" data-i18n="sk.more">文档与示例 →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="dc.tag">// DOCS</div>
+    <h2 class="reveal" data-i18n="dc.title">文档</h2>
+    <p class="lead reveal" data-i18n="dc.lead">全部随仓库维护, 与代码同版本。</p>
+    <div class="docs-grid">
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb#sql-support" target="_blank" rel="noopener">
+        <div class="d-ic">SQL</div><div><b data-i18n="dc.d1">SQL 支持一览</b><span data-i18n="dc.d1s">支持的语句与函数全集</span></div>
+      </a>
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb/blob/main/docs/03-sql-operations.md" target="_blank" rel="noopener">
+        <div class="d-ic">OPS</div><div><b data-i18n="dc.d2">SQL 操作手册</b><span data-i18n="dc.d2s">CRUD / 事务 / 索引操作细则</span></div>
+      </a>
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb/blob/main/docs/06-indexes-overview.md" target="_blank" rel="noopener">
+        <div class="d-ic">IDX</div><div><b data-i18n="dc.d3">索引总览</b><span data-i18n="dc.d3s">向量 / 全文 / 列索引 / 空间</span></div>
+      </a>
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb/blob/main/docs/17-hybrid-arrow.md" target="_blank" rel="noopener">
+        <div class="d-ic">RRF</div><div><b data-i18n="dc.d4">混合检索 + Arrow</b><span data-i18n="dc.d4s">BM25×KNN 融合与训练管线对接</span></div>
+      </a>
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb/blob/main/docs/design/2026-10-file-layout.md" target="_blank" rel="noopener">
+        <div class="d-ic">DSN</div><div><b data-i18n="dc.d5">存储设计: 三种形态</b><span data-i18n="dc.d5s">采集/运输/部署的磁盘形态演进</span></div>
+      </a>
+      <a class="doc-link reveal" href="https://github.com/motedb/motedb/tree/main/docs" target="_blank" rel="noopener">
+        <div class="d-ic">ALL</div><div><b data-i18n="dc.d6">全部文档</b><span data-i18n="dc.d6s">docs/ 目录索引</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -469,7 +629,35 @@ const I18N = {
     'sk.more':'文档与示例 →','sk.soon':'发布配置中',
     'cta.t':'MIT 开源 · 今天就能跑起来',
     'cta.p':'无服务、无端口、无依赖锁定——一个库文件，就是你的多模态数据库。',
-    'cta.b1':'GitHub 仓库','cta.b2':'快速开始'
+    'cta.b1':'GitHub 仓库','cta.b2':'快速开始',
+    'nav.d':'文档',
+    'cap.tag':'// CAPABILITIES','cap.title':'一套 SQL，查询所有模态',
+    'cap.lead':'向量、时序、全文、二进制不是四个数据库——是一张表里的四种列。真实的查询长这样：',
+    'cap.t1':'向量 KNN','cap.t2':'时序窗口','cap.t3':'全文 + 向量混合','cap.t4':'BLOB / MCAP','cap.t5':'快照运输',
+    'cap.note':'// 以上均为真实语法 — 与仓库测试同源, 非示意',
+    'why.tag':'// WHY MOTEDB','why.title':'为什么不用"拼一个"',
+    'why.lead':'向量用扩展、时序靠手写、文本再装一个——三个存储、三种一致性、三份运维。MoteDB 把它们放回同一张表。',
+    'why.h1':'能力','why.h2':'通用嵌入式 + 扩展拼装','why.h3':'文件 + 自研脚本',
+    'why.r1':'向量 KNN (索引加速)','why.r2':'时序语义 (TIME_BUCKET / TTL / LATEST BY)',
+    'why.r3':'全文检索 (BM25 + snippet)','why.r4':'多模态同一事务视图',
+    'why.r5':'单文件快照 (CRC + zstd + 增量)','why.r6':'只读容器部署 (多读者)',
+    'why.r7':'断电安全 (崩溃注入验证)',
+    'why.note':'* 对比基于各产品公开能力与本仓库可复现验证, 2026-10。● 完整支持 · ▲ 部分/需组装 · — 不支持',
+    'ql.tag':'// ENGINEERING','ql.title':'为边缘设备写的每一行, 都按内核标准验证',
+    'ql.lead':'嵌入式的故障不可回滚、不可远程修复。所以发布前要过的是这些——不是营销数字, 是仓库里可复现的门禁。',
+    'ql.q1':'轮独立发布审计 · 修复 10 项问题 (含 2 项 10 万行级存量 bug)',
+    'ql.q2':'clippy 告警 · 全目标 (lib/tests/examples) 零警告',
+    'ql.q3':'打开提速 (50 表库 77ms → 17.6ms, 有界常量)',
+    'ql.q4':'50 表 checkpoint, 表数平坦化 (原 42ms 线性)',
+    'ql.q5':'崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁',
+    'ql.q6':'预构建逐平台冒烟 — 交叉编译产物经真实加载验证',
+    'dc.tag':'// DOCS','dc.title':'文档','dc.lead':'全部随仓库维护, 与代码同版本。',
+    'dc.d1':'SQL 支持一览','dc.d1s':'支持的语句与函数全集',
+    'dc.d2':'SQL 操作手册','dc.d2s':'CRUD / 事务 / 索引操作细则',
+    'dc.d3':'索引总览','dc.d3s':'向量 / 全文 / 列索引 / 空间',
+    'dc.d4':'混合检索 + Arrow','dc.d4s':'BM25×KNN 融合与训练管线对接',
+    'dc.d5':'存储设计: 三种形态','dc.d5s':'采集/运输/部署的磁盘形态演进',
+    'dc.d6':'全部文档','dc.d6s':'docs/ 目录索引'
   },
   en: {
     'nav.f':'Features','nav.a':'Architecture','nav.q':'Quickstart','nav.s':'SDK',
@@ -501,7 +689,35 @@ const I18N = {
     'sk.more':'Docs & examples →','sk.soon':'coming soon',
     'cta.t':'MIT open source · Run it today',
     'cta.p':'No server, no port, no lock-in — one library file is your multimodal database.',
-    'cta.b1':'GitHub repository','cta.b2':'Quickstart'
+    'cta.b1':'GitHub repository','cta.b2':'Quickstart',
+    'nav.d':'Docs',
+    'cap.tag':'// CAPABILITIES','cap.title':'One SQL across every modality',
+    'cap.lead':'Vectors, time series, full text, binary — not four databases, but four column types in one table. Real queries look like this:',
+    'cap.t1':'Vector KNN','cap.t2':'Time windows','cap.t3':'Hybrid FTS+KNN','cap.t4':'BLOB / MCAP','cap.t5':'Snapshot shipping',
+    'cap.note':'// All syntax is real — same as repository tests, not mockups',
+    'why.tag':'// WHY MOTEDB','why.title':'Why not glue one together',
+    'why.lead':'One extension for vectors, hand-written SQL for time series, another install for text — three stores, three consistency models, three ops burdens. MoteDB puts them back in one table.',
+    'why.h1':'Capability','why.h2':'Generic embedded + extensions','why.h3':'Files + custom scripts',
+    'why.r1':'Vector KNN (index-accelerated)','why.r2':'Time-series semantics (TIME_BUCKET / TTL / LATEST BY)',
+    'why.r3':'Full-text search (BM25 + snippet)','why.r4':'All modalities in one transactional view',
+    'why.r5':'Single-file snapshot (CRC + zstd + incremental)','why.r6':'Read-only container deploy (multi-reader)',
+    'why.r7':'Power-fail safety (crash-injection tested)',
+    'why.note':'* Comparison based on public capabilities as of 2026-10 and reproducible checks in this repository. ● full · ▲ partial/requires assembly · — not supported',
+    'ql.tag':'// ENGINEERING','ql.title':'Every line written for edge devices, validated to kernel standards',
+    'ql.lead':'Edge failures cannot be rolled back or hot-fixed remotely. So releases pass through these gates — not marketing numbers, reproducible checks in the repository.',
+    'ql.q1':'independent release audits · 10 issues fixed (incl. two at 100K-row scale)',
+    'ql.q2':'clippy warnings · zero across lib/tests/examples',
+    'ql.q3':'faster opens (50-table DB: 77ms → 17.6ms, bounded constant)',
+    'ql.q4':'50-table checkpoint, flat in table count (was 42ms linear)',
+    'ql.q5':'crash injection · differential fuzz · corruption recovery · perf-gate budgets',
+    'ql.q6':'prebuilt binaries smoke-tested per platform — cross-compiled outputs load-tested for real',
+    'dc.tag':'// DOCS','dc.title':'Documentation','dc.lead':'Maintained in-repository, versioned with the code.',
+    'dc.d1':'SQL support','dc.d1s':'Full statement and function reference',
+    'dc.d2':'SQL operations guide','dc.d2s':'CRUD / transactions / index details',
+    'dc.d3':'Indexes overview','dc.d3s':'Vector / full-text / column / spatial',
+    'dc.d4':'Hybrid retrieval + Arrow','dc.d4s':'BM25×KNN fusion and training-pipeline interop',
+    'dc.d5':'Storage design: three forms','dc.d5s':'Disk-shape evolution across capture/transport/deploy',
+    'dc.d6':'All documentation','dc.d6s':'docs/ directory index'
   }
 };
 let LANG = localStorage.getItem('motedb-lang') ||
@@ -615,6 +831,17 @@ document.querySelectorAll('.card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
+
+/* ── capability tabs ── */
+function showCap(ev, id){
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  ev.currentTarget.classList.add('on');
+  const names = {'cap-vec':'knn.sql','cap-ts':'time_bucket.sql','cap-fts':'hybrid.py','cap-blob':'mcap.sql','cap-snap':'shipping.sql'};
+  const f = document.getElementById('cap-file');
+  if (f) f.textContent = names[id] || 'query.sql';
+}
 
 /* ── hero mark parallax ── */
 (function(){
