@@ -3,30 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MoteDB — 具身智能的多模态嵌入式数据库 | Embodied AI Database</title>
-<meta name="description" content="MoteDB 是面向具身智能的嵌入式多模态数据库引擎：一个 SQL 引擎原生承载向量、时序、文本与二进制。Rust 编写，嵌入式零运维，支持单文件快照与只读容器分发。 | The multimodal embedded database engine for embodied intelligence — vectors, time series, text and binary in one SQL engine.">
+<title>MoteDB — 嵌入式多模态数据库 · 为具身智能与机器人而生 | Rust 开源</title>
+<meta name="description" content="MoteDB 是面向具身智能与机器人的开源嵌入式多模态数据库：一个 SQL 引擎原生承载向量、时序、全文与二进制数据。Rust 编写、零运维，支持 MCAP 导入、单文件快照与只读容器分发，提供 Rust / Python / Node.js SDK。MIT 协议。">
 <meta name="keywords" content="MoteDB, embedded database, embodied AI, robotics, vector database, time series, multimodal, MCAP, Rust, SQLite alternative, 具身智能, 嵌入式数据库, 多模态, 向量检索">
 <meta name="author" content="MoteDB">
 <link rel="canonical" href="https://motedb.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://motedb.github.io/">
+<link rel="alternate" hreflang="en" href="https://motedb.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://motedb.github.io/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="MoteDB">
 <meta property="og:url" content="https://motedb.github.io/">
-<meta property="og:title" content="MoteDB — 具身智能的多模态嵌入式数据库">
-<meta property="og:description" content="一个 SQL 引擎，原生承载向量、时序、文本与二进制。采集、运输、部署三种形态，嵌入式零运维。MIT 开源。">
+<meta property="og:title" content="MoteDB — 嵌入式多模态数据库 · 为具身智能与机器人而生">
+<meta property="og:description" content="面向具身智能与机器人的开源嵌入式多模态数据库：向量、时序、全文、二进制，一个 SQL 引擎。Rust 编写，零运维，MIT 协议。">
 <meta property="og:image" content="https://motedb.github.io/logo-lockup.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MoteDB — The multimodal embedded database for embodied intelligence">
 <meta name="twitter:description" content="Vectors, time series, text and binary in one embedded SQL engine. Capture, transport, deploy — three forms, one experience. MIT licensed.">
 <meta name="twitter:image" content="https://motedb.github.io/logo-lockup.png">
 <meta name="theme-color" content="#0a0f16">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="llms-txt" href="llms.txt">
-<link rel="preload" as="image" href="logo-mark-dark.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="llms-txt" href="/llms.txt">
+<link rel="preload" as="image" href="/logo-mark-dark.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "MoteDB",
+  "url": "https://motedb.github.io/",
+  "inLanguage": "zh-CN",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS, Linux, Windows",
   "description": "AI-native embedded multimodal database for embodied intelligence — vectors, time series, text and binary in one SQL engine. Rust, MIT licensed.",
@@ -92,10 +99,12 @@
   .ver-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--orange2);border:1px solid rgba(255,138,43,.4);background:rgba(255,138,43,.07);padding:5px 14px;border-radius:999px;margin-bottom:26px;box-shadow:0 0 18px rgba(255,138,43,.12)}
   .ver-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse-dot 2s infinite}
   @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(255,138,43,.5)}50%{box-shadow:0 0 0 6px rgba(255,138,43,0)}}
-  h1{font-size:clamp(32px,5vw,54px);line-height:1.14;font-weight:800;letter-spacing:-.5px;color:var(--txt)}
-  h1 em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--orange2) 60%,#ffd9ad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s ease-in-out infinite}
+  .slogan{font-size:clamp(32px,5vw,54px);line-height:1.14;font-weight:800;letter-spacing:-.5px;color:var(--txt)}
+  .hero-h1{margin-top:16px;font-size:clamp(17px,2vw,23px);font-weight:600;line-height:1.45;letter-spacing:0;color:var(--txt)}
+  .hero-h1 b{color:var(--orange2);font-weight:700}
+  .slogan em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--orange2) 60%,#ffd9ad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s ease-in-out infinite}
   @keyframes shine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  .hero p.sub{margin:22px 0 30px;font-size:clamp(15px,2vw,17.5px);color:var(--dim);max-width:600px}
+  .hero p.sub{margin:14px 0 30px;font-size:clamp(15px,2vw,17.5px);color:var(--dim);max-width:600px}
   .hero p.sub b{color:var(--txt);font-weight:600}
   .installs{display:flex;flex-direction:column;gap:10px;max-width:540px}
   .inst{display:flex;align-items:stretch;background:rgba(13,20,32,.85);border:1px solid var(--line2);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:13.5px;transition:border-color .15s}
@@ -311,7 +320,7 @@
 <nav>
   <div class="nav-in">
     <a class="logo" href="#">
-      <img src="logo-mark-dark.png" height="34" alt="MoteDB">
+      <img src="/logo-mark-dark.png" height="34" alt="MoteDB">
       mote<b style="color:var(--orange)">DB</b>
     </a>
     <button class="menu-btn" aria-label="菜单" onclick="toggleMenu(event)">≡</button>
@@ -352,8 +361,9 @@
   <div class="wrap">
     <div>
       <span class="ver-badge"><span class="dot"></span><span data-i18n="hero.badge">v0.15.0 · MIT 开源 · 正式发布</span></span>
-      <h1><span data-i18n="hero.t1">让机器人的记忆</span><br><em data-i18n="hero.t2">有了心跳</em></h1>
-      <p class="sub" data-i18n="hero.sub">MoteDB —— 具身智能的<b>多模态嵌入式数据库</b>：一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。</p>
+      <p class="slogan"><span data-i18n="hero.t1">让机器人的记忆</span><br><em data-i18n="hero.t2">有了心跳</em></p>
+      <h1 class="hero-h1" data-i18n="hero.h1">具身智能的<b>嵌入式多模态数据库</b></h1>
+      <p class="sub" data-i18n="hero.sub">MoteDB 用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。</p>
       <div class="installs">
         <div class="inst"><span class="tag">RUST</span><code><span class="p">cargo</span> add motedb</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
         <div class="inst"><span class="tag">PYTHON</span><code><span class="p">pip</span> install motedb-python</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
@@ -365,7 +375,7 @@
       </div>
     </div>
     <div class="hero-mark" id="heroMark">
-      <img src="logo-mark-dark.png" height="300" alt="MoteDB logo">
+      <img src="/logo-mark-dark.png" height="300" alt="MoteDB logo">
     </div>
   </div>
 </header>
@@ -440,31 +450,31 @@
     </div>
     <div class="term2 reveal">
       <div class="bar"><i></i><i></i><i></i><span class="t" id="cap-file">knn.sql</span></div>
-      <div class="tab-pane on" id="cap-vec"><pre><span class="c">-- 位姿表中语义最近的 5 条 (索引加速)</span>
+      <div class="tab-pane on" id="cap-vec"><pre><span class="c" data-i18n="code.c1">-- 位姿表中语义最近的 5 条 (索引加速)</span>
 <span class="k">SELECT</span> ts, sid <span class="k">FROM</span> poses
 <span class="k">ORDER BY</span> emb &lt;-&gt; [<span class="n">0.1</span>, <span class="n">0.2</span>, <span class="n">0.3</span>, <span class="n">0.4</span>]
 <span class="k">LIMIT</span> <span class="n">5</span>;</pre></div>
-      <div class="tab-pane" id="cap-ts"><pre><span class="c">-- 60 秒窗口聚合 + 自动 TTL 过期</span>
+      <div class="tab-pane" id="cap-ts"><pre><span class="c" data-i18n="code.c2">-- 60 秒窗口聚合 + 自动 TTL 过期</span>
 <span class="k">SELECT</span> TIME_BUCKET(<span class="s">'60s'</span>, ts) <span class="k">AS</span> bucket,
        <span class="f">AVG</span>(v), <span class="f">MAX</span>(v)
 <span class="k">FROM</span> poses <span class="k">GROUP BY</span> bucket;
 
 <span class="k">ALTER TABLE</span> poses <span class="k">SET</span> TTL = <span class="s">'30d'</span>;</pre></div>
-      <div class="tab-pane" id="cap-fts"><pre><span class="c">-- 混合检索: 全文 (BM25) × 向量 (KNN) RRF 融合</span>
+      <div class="tab-pane" id="cap-fts"><pre><span class="c" data-i18n="code.c3">-- 混合检索: 全文 (BM25) × 向量 (KNN) RRF 融合</span>
 db.hybrid_search(
-  <span class="s">"docs_body"</span>,            <span class="c"># 全文索引</span>
-  <span class="s">"joint calibration"</span>,    <span class="c"># 文本查询</span>
-  <span class="s">"docs_emb"</span>,             <span class="c"># 向量列</span>
+  <span class="s">"docs_body"</span>,            <span class="c" data-i18n="code.c4"># 全文索引</span>
+  <span class="s">"joint calibration"</span>,    <span class="c" data-i18n="code.c5"># 文本查询</span>
+  <span class="s">"docs_emb"</span>,             <span class="c" data-i18n="code.c6"># 向量列</span>
   [<span class="n">0.1</span>, <span class="n">0.4</span>, <span class="n">0.2</span>, <span class="n">0.9</span>], k=<span class="n">10</span>)</pre></div>
-      <div class="tab-pane" id="cap-blob"><pre><span class="c">-- BLOB 字节等值 + MCAP 一次性导入</span>
+      <div class="tab-pane" id="cap-blob"><pre><span class="c" data-i18n="code.c7">-- BLOB 字节等值 + MCAP 一次性导入</span>
 <span class="k">SELECT</span> id <span class="k">FROM</span> frames
 <span class="k">WHERE</span> payload = X<span class="s">'DEADBEEF'</span>;
 
 <span class="k">IMPORT MCAP</span> <span class="s">'session_2026_10_17.mcap'</span>;</pre></div>
-      <div class="tab-pane" id="cap-snap"><pre><span class="c">-- 整库 → 单文件 (CRC 校验 + zstd)</span>
+      <div class="tab-pane" id="cap-snap"><pre><span class="c" data-i18n="code.c8">-- 整库 → 单文件 (CRC 校验 + zstd)</span>
 <span class="k">EXPORT DB TO</span> <span class="s">'fleet.mote'</span> COMPRESSED;
 
-<span class="c">-- 部署侧: 只读打开, 多读者共存</span>
+<span class="c" data-i18n="code.c9">-- 部署侧: 只读打开, 多读者共存</span>
 db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
     </div>
     <p class="cap-note reveal" data-i18n="cap.note">// 以上均为真实语法 — 与仓库测试同源, 非示意</p>
@@ -514,13 +524,13 @@ db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
           <th data-i18n="why.h2">通用嵌入式 + 扩展拼装</th>
           <th data-i18n="why.h3">文件 + 自研脚本</th>
         </tr>
-        <tr><td data-i18n="why.r1">向量 KNN (索引加速)</td><td class="yes">●</td><td class="part">▲ 扩展</td><td class="no">—</td></tr>
-        <tr><td data-i18n="why.r2">时序语义 (TIME_BUCKET / TTL / LATEST BY)</td><td class="yes">●</td><td class="part">▲ 手写 SQL</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r1">向量 KNN (索引加速)</td><td class="yes">●</td><td class="part" data-i18n="cmp.ext">▲ 扩展</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r2">时序语义 (TIME_BUCKET / TTL / LATEST BY)</td><td class="yes">●</td><td class="part" data-i18n="cmp.hand">▲ 手写 SQL</td><td class="no">—</td></tr>
         <tr><td data-i18n="why.r3">全文检索 (BM25 + snippet)</td><td class="yes">●</td><td class="yes">● FTS5</td><td class="no">—</td></tr>
-        <tr><td data-i18n="why.r4">多模态同一事务视图</td><td class="yes">●</td><td class="no">— 跨扩展无事务</td><td class="no">—</td></tr>
-        <tr><td data-i18n="why.r5">单文件快照 (CRC + zstd + 增量)</td><td class="yes">●</td><td class="no">— 手动拷贝</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r4">多模态同一事务视图</td><td class="yes">●</td><td class="no" data-i18n="cmp.notx">— 跨扩展无事务</td><td class="no">—</td></tr>
+        <tr><td data-i18n="why.r5">单文件快照 (CRC + zstd + 增量)</td><td class="yes">●</td><td class="no" data-i18n="cmp.copy">— 手动拷贝</td><td class="no">—</td></tr>
         <tr><td data-i18n="why.r6">只读容器部署 (多读者)</td><td class="yes">●</td><td class="no">—</td><td class="no">—</td></tr>
-        <tr><td data-i18n="why.r7">断电安全 (崩溃注入验证)</td><td class="yes">●</td><td class="part">▲ 取决于实现</td><td class="part">▲ 取决于实现</td></tr>
+        <tr><td data-i18n="why.r7">断电安全 (崩溃注入验证)</td><td class="yes">●</td><td class="part" data-i18n="cmp.impl">▲ 取决于实现</td><td class="part" data-i18n="cmp.impl">▲ 取决于实现</td></tr>
       </table>
     </div>
     <p class="cmp-hint" data-i18n="why.hint">← 左右滑动查看 →</p>
@@ -547,18 +557,18 @@ db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
       <div class="card reveal">
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff8a2b" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></div>
         <h3 data-i18n="ai.c3.t">对 AI 可读</h3>
-        <p data-i18n="ai.c3.d"><a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。</p>
+        <p data-i18n="ai.c3.d"><a href="/llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。</p>
       </div>
     </div>
     <div class="term2 reveal">
       <div class="bar"><i></i><i></i><i></i><span class="t">ai-stack.py</span></div>
-      <pre><span class="c"># 语义混合检索: BM25 × KNN, RRF 融合</span>
+      <pre><span class="c" data-i18n="code.c10"># 语义混合检索: BM25 × KNN, RRF 融合</span>
 res = db.hybrid_search(<span class="s">"docs_body"</span>, <span class="s">"joint calibration"</span>,
                        <span class="s">"docs_emb"</span>, [<span class="n">0.1</span>,<span class="n">0.4</span>,<span class="n">0.2</span>,<span class="n">0.9</span>], k=<span class="n">10</span>)
 
-<span class="c"># 结果直通 Arrow → 训练管线零转换</span>
+<span class="c" data-i18n="code.c11"># 结果直通 Arrow → 训练管线零转换</span>
 tbl = db.query_arrow(<span class="s">"SELECT ts, sid, emb FROM poses"</span>)
-<span class="c"># tbl 列向量即 FixedSizeList&lt;float32&gt; — 可直接喂给 DataLoader</span></pre>
+<span class="c" data-i18n="code.c12"># tbl 列向量即 FixedSizeList&lt;float32&gt; — 可直接喂给 DataLoader</span></pre>
     </div>
   </div>
 </section>
@@ -585,11 +595,11 @@ db.execute(<span class="s">"CREATE TABLE poses (
 ) TIMESERIES(ts)"</span>)
 db.executemany(<span class="s">"INSERT INTO poses VALUES (?,?,?)"</span>, poses)
 
-<span class="c"># 向量 KNN：最近的 5 个位姿</span>
+<span class="c" data-i18n="code.c13"># 向量 KNN：最近的 5 个位姿</span>
 hits = db.query(<span class="s">"SELECT ts, sid FROM poses
   ORDER BY emb &lt;-&gt; [0.1,0.2,0.3,0.4] LIMIT 5"</span>)
 
-<span class="c"># 运输：整库打成单文件快照</span>
+<span class="c" data-i18n="code.c14"># 运输：整库打成单文件快照</span>
 db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="cursor"></span></pre>
       </div>
     </div>
@@ -606,8 +616,8 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
       <div class="qcard reveal"><b>0</b><span data-i18n="ql.q2">clippy 告警 · 全目标 (lib/tests/examples) 零警告</span></div>
       <div class="qcard reveal"><b>4.4×</b><span data-i18n="ql.q3">打开提速 (50 表库 77ms → 17.6ms, 有界常量)</span></div>
       <div class="qcard reveal"><b>24.6ms</b><span data-i18n="ql.q4">50 表 checkpoint, 表数平坦化 (原 42ms 线性)</span></div>
-      <div class="qcard reveal"><b>CI 矩阵</b><span data-i18n="ql.q5">崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁</span></div>
-      <div class="qcard reveal"><b>5 平台</b><span data-i18n="ql.q6">预构建逐平台冒烟 — 交叉编译产物经真实加载验证</span></div>
+      <div class="qcard reveal"><b data-i18n="ql.n5">CI 矩阵</b><span data-i18n="ql.q5">崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁</span></div>
+      <div class="qcard reveal"><b data-i18n="ql.n6">5 平台</b><span data-i18n="ql.q6">预构建逐平台冒烟 — 交叉编译产物经真实加载验证</span></div>
     </div>
   </div>
 </section>
@@ -683,7 +693,7 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
 <footer>
   <div class="wrap">
     <div class="brand">
-      <img src="logo-mark-dark.png" height="26" alt="">
+      <img src="/logo-mark-dark.png" height="26" alt="">
       mote<b style="color:var(--orange)">DB</b>
     </div>
     <div>© 2026 MoteDB · MIT License</div>
@@ -700,9 +710,32 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
 const I18N = {
   zh: {
     'nav.f':'特性','nav.a':'架构','nav.q':'快速开始','nav.s':'SDK',
+    'copy':'复制','ok':'已复制 ✓',
+    'code.c1':'-- 位姿表中语义最近的 5 条 (索引加速)',
+    'code.c2':'-- 60 秒窗口聚合 + 自动 TTL 过期',
+    'code.c3':'-- 混合检索: 全文 (BM25) × 向量 (KNN) RRF 融合',
+    'code.c4':'# 全文索引',
+    'code.c5':'# 文本查询',
+    'code.c6':'# 向量列',
+    'code.c7':'-- BLOB 字节等值 + MCAP 一次性导入',
+    'code.c8':'-- 整库 → 单文件 (CRC 校验 + zstd)',
+    'code.c9':'-- 部署侧: 只读打开, 多读者共存',
+    'code.c10':'# 语义混合检索: BM25 × KNN, RRF 融合',
+    'code.c11':'# 结果直通 Arrow → 训练管线零转换',
+    'code.c12':'# tbl 列向量即 FixedSizeList&lt;float32&gt; — 可直接喂给 DataLoader',
+    'code.c13':'# 向量 KNN：最近的 5 个位姿',
+    'code.c14':'# 运输：整库打成单文件快照',
+    'cmp.ext':'▲ 扩展',
+    'cmp.hand':'▲ 手写 SQL',
+    'cmp.notx':'— 跨扩展无事务',
+    'cmp.copy':'— 手动拷贝',
+    'cmp.impl':'▲ 取决于实现',
+    'ql.n5':'CI 矩阵',
+    'ql.n6':'5 平台',
     'hero.badge':'v0.15.0 · MIT 开源 · 正式发布',
     'hero.t1':'让机器人的记忆','hero.t2':'有了心跳',
-    'hero.sub':'MoteDB —— 具身智能的<b>多模态嵌入式数据库</b>：一个 SQL 引擎，原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。',
+    'hero.h1':'具身智能的<b>嵌入式多模态数据库</b>',
+    'hero.sub':'MoteDB 用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。',
     'npm.soon':'发布配置中','hero.cta1':'5 分钟上手','hero.cta2':'查看源码',
     'st.1':'引擎 · 三种形态','st.2':'官方 SDK','st.3':'平台预构建二进制','st.4':'模态：向量/时序/文本/BLOB','st.5':'轮独立发布审计',
     'ft.tag':'// FEATURES','ft.title':'为具身 AI 工作负载而生',
@@ -758,7 +791,7 @@ const I18N = {
     'ai.c2.t':'Arrow 直通训练管线',
     'ai.c2.d':'<code>query_arrow()</code> 返回规范 pyarrow.Table——向量列为 <code>FixedSizeList&lt;float32&gt;</code>，零拷贝对接 PyTorch/DataLoader。',
     'ai.c3.t':'对 AI 可读',
-    'ai.c3.d':'<a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。',
+    'ai.c3.d':'<a href="/llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD 结构化数据 + 机器可读能力清单——LLM、Agent、AI 搜索引擎都能准确回答"MoteDB 能不能做 X"。',
     'dc.tag':'// DOCS','dc.title':'文档','dc.lead':'全部随仓库维护, 与代码同版本。',
     'dc.d1':'SQL 支持一览','dc.d1s':'支持的语句与函数全集',
     'dc.d2':'SQL 操作手册','dc.d2s':'CRUD / 事务 / 索引操作细则',
@@ -769,9 +802,32 @@ const I18N = {
   },
   en: {
     'nav.f':'Features','nav.a':'Architecture','nav.q':'Quickstart','nav.s':'SDK',
+    'copy':'Copy','ok':'Copied ✓',
+    'code.c1':'-- 5 semantically nearest rows in the pose table (index-accelerated)',
+    'code.c2':'-- 60-second window aggregation + automatic TTL expiry',
+    'code.c3':'-- Hybrid retrieval: full text (BM25) × vector (KNN), RRF fusion',
+    'code.c4':'# full-text index',
+    'code.c5':'# text query',
+    'code.c6':'# vector column',
+    'code.c7':'-- BLOB byte-exact equality + one-shot MCAP import',
+    'code.c8':'-- Whole database → single file (CRC-verified + zstd)',
+    'code.c9':'-- Deploy side: open read-only, multiple readers co-exist',
+    'code.c10':'# Semantic hybrid search: BM25 × KNN, RRF fusion',
+    'code.c11':'# Results straight to Arrow → zero-copy into the training pipeline',
+    'code.c12':'# tbl vector column is FixedSizeList&lt;float32&gt; — feed a DataLoader directly',
+    'code.c13':'# Vector KNN: 5 nearest poses',
+    'code.c14':'# Transport: pack the whole database into one snapshot file',
+    'cmp.ext':'▲ via extension',
+    'cmp.hand':'▲ hand-written SQL',
+    'cmp.notx':'— no cross-extension transactions',
+    'cmp.copy':'— manual copy',
+    'cmp.impl':'▲ implementation-dependent',
+    'ql.n5':'CI matrix',
+    'ql.n6':'5 platforms',
     'hero.badge':'v0.15.0 · MIT · Generally available',
     'hero.t1':'Robot memories,','hero.t2':'with a heartbeat',
-    'hero.sub':'MoteDB — the <b>multimodal embedded database</b> for embodied intelligence. One SQL engine natively carrying <b>vectors · time series · text · binary</b>, from capture to fleet distribution — embedded, zero-ops, ready on open.',
+    'hero.h1':'The <b>embedded multimodal database</b> for embodied AI &amp; robotics',
+    'hero.sub':'MoteDB carries <b>vectors · time series · text · binary</b> in one embedded SQL engine — from capture to fleet distribution, zero-ops, ready on open.',
     'npm.soon':'coming soon','hero.cta1':'Get started in 5 min','hero.cta2':'View source',
     'st.1':'engine · three forms','st.2':'official SDKs','st.3':'prebuilt platforms','st.4':'modalities: vector/ts/text/BLOB','st.5':'independent release audits',
     'ft.tag':'// FEATURES','ft.title':'Built for embodied-AI workloads',
@@ -827,7 +883,7 @@ const I18N = {
     'ai.c2.t':'Arrow straight to training pipelines',
     'ai.c2.d':'<code>query_arrow()</code> returns a canonical pyarrow.Table — vector columns as <code>FixedSizeList&lt;float32&gt;</code>, zero-copy into PyTorch/DataLoader.',
     'ai.c3.t':'Readable by AI',
-    'ai.c3.d':'<a href="llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD structured data + a machine-readable capability manifest — LLMs, agents and AI search can accurately answer "can MoteDB do X".',
+    'ai.c3.d':'<a href="/llms.txt" style="color:var(--orange2)">llms.txt</a> + JSON-LD structured data + a machine-readable capability manifest — LLMs, agents and AI search can accurately answer "can MoteDB do X".',
     'dc.tag':'// DOCS','dc.title':'Documentation','dc.lead':'Maintained in-repository, versioned with the code.',
     'dc.d1':'SQL support','dc.d1s':'Full statement and function reference',
     'dc.d2':'SQL operations guide','dc.d2s':'CRUD / transactions / index details',
@@ -837,11 +893,13 @@ const I18N = {
     'dc.d6':'All documentation','dc.d6s':'docs/ directory index'
   }
 };
-let LANG = localStorage.getItem('motedb-lang') ||
-           (navigator.language && navigator.language.startsWith('zh') ? 'zh' : 'en');
+const PAGE_LANG = document.documentElement.lang.startsWith('en') ? 'en' : 'zh';
+const STORED_LANG = localStorage.getItem('motedb-lang');
+// URL 决定爬虫看到的语言 (/ = zh, /en/ = en); 用户偏好与浏览器语言只做页内覆盖, 不自动跳转
+let LANG = STORED_LANG ||
+           (PAGE_LANG === 'zh' && navigator.language && !navigator.language.startsWith('zh') ? 'en' : PAGE_LANG);
 function setLang(l){
   LANG = l;
-  localStorage.setItem('motedb-lang', l);
   document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = I18N[l][el.dataset.i18n];
@@ -849,11 +907,16 @@ function setLang(l){
   });
   document.querySelectorAll('[data-copy]').forEach(b => { b.textContent = I18N[LANG]['copy']; });
   document.getElementById('langBtn').textContent = l === 'zh' ? 'EN' : '中文';
+  const mb = document.querySelector('.menu-btn'); if (mb) mb.setAttribute('aria-label', l === 'zh' ? '菜单' : 'Menu');
   document.title = l === 'zh'
-    ? 'MoteDB — 具身智能的多模态嵌入式数据库'
-    : 'MoteDB — The multimodal embedded database for embodied intelligence';
+    ? 'MoteDB — 嵌入式多模态数据库 · 为具身智能与机器人而生 | Rust 开源'
+    : 'MoteDB — Embedded Multimodal Database for Embodied AI & Robotics | Rust, MIT';
 }
-function toggleLang(){ setLang(LANG === 'zh' ? 'en' : 'zh'); }
+function toggleLang(){
+  const next = LANG === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('motedb-lang', next);
+  location.href = next === 'en' ? '/en/' : '/';
+}
 setLang(LANG);
 
 /* ── copy ── */
