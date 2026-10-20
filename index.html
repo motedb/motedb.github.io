@@ -935,6 +935,21 @@ function showCap(ev, id){
   hero.addEventListener('mouseleave', () => { hm.style.transform = ''; });
 })();
 
+/* ── 访问统计: GoatCounter ──
+   免 cookie、无指纹, 对非商用开源项目免费 (50k PV/月)。
+   启用步骤: 1) https://www.goatcounter.com/signup 注册, 取二级域名前缀 (如 motedb)
+            2) 把前缀填进 GC_CODE → 后台 https://<前缀>.goatcounter.com 实时看访客数
+   GC_CODE 为空时不加载任何脚本、不发任何请求。 */
+(function(){
+  var GC_CODE = '';
+  if (!GC_CODE || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = '//gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter', 'https://' + GC_CODE + '.goatcounter.com/count');
+  document.body.appendChild(s);
+})();
+
 </script>
 </body>
 </html>
