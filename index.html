@@ -941,7 +941,7 @@ function showCap(ev, id){
             2) 把前缀填进 GC_CODE → 后台 https://<前缀>.goatcounter.com 实时看访客数
    GC_CODE 为空时不加载任何脚本、不发任何请求。 */
 (function(){
-  var GC_CODE = '';
+  var GC_CODE = 'motedb';
   if (!GC_CODE || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
   var s = document.createElement('script');
   s.async = true;
