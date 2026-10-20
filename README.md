@@ -33,6 +33,16 @@ git add index.html en/index.html && git commit && git push
 - 导航栏语言按钮在两个 URL 之间跳转并记住偏好（localStorage `motedb-lang`）。
 - 根路径上无偏好且浏览器非中文时，仅做**页内**翻译，不自动跳转（Google 不建议按 UA 语言重定向）。
 
+## 搜索引擎收录
+
+- Google：Search Console 已验证（验证文件 `googleeae9f3186a49a3c8.html` 需常驻仓库），sitemap 已提交。
+- Bing：Webmaster 已从 GSC 导入；另支持 IndexNow 即时推送（密钥文件 `c8ec2412cf5febb697852d8fffc9f35e.txt`）。**每次内容更新后**执行一次：
+
+```bash
+curl -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json' \
+  -d '{"host":"motedb.github.io","key":"c8ec2412cf5febb697852d8fffc9f35e","keyLocation":"https://motedb.github.io/c8ec2412cf5febb697852d8fffc9f35e.txt","urlList":["https://motedb.github.io/","https://motedb.github.io/en/"]}'
+```
+
 ## 访问统计
 
 GoatCounter（免 cookie），后台 https://motedb.goatcounter.com 。排除自己的访问：浏览器打开一次 `https://motedb.github.io/#toggle-goatcounter`。
