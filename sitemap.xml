@@ -3,20 +3,20 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://motedb.github.io/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://motedb.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://motedb.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://motedb.github.io/"/>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://motedb.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://motedb.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motedb.github.io/"/>
   </url>
   <url>
     <loc>https://motedb.github.io/en/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://motedb.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://motedb.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://motedb.github.io/"/>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://motedb.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://motedb.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motedb.github.io/"/>
   </url>
 </urlset>
