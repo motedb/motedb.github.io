@@ -10,6 +10,8 @@ MoteDB 官网源码 · GitHub Pages 直出静态站，无构建框架。
 | `en/index.html` | **构建产物**，由 `build_en.py` 生成，不要手改 |
 | `build_en.py` | 从 `index.html` 派生英文页：静态替换全部 `data-i18n` 节点 + 语言相关 `<head>` 字段 |
 | `sitemap.xml` | 两个 URL 各带 hreflang 互指（zh-CN / en / x-default） |
+| `404.html` | 双语品牌 404（GitHub Pages 自动识别），`noindex` |
+| `og-card.html` → `og-zh.png` / `og-en.png` | 分享卡片模板与产物（1200×630）。改模板后在浏览器以 1200×630 视口分别打开 `og-card.html` 和 `og-card.html?lang=en` 截图覆盖 |
 | `robots.txt` | 全放行 + 显式欢迎主流 AI 爬虫 |
 | `llms.txt` / `llms-full.txt` | [llmstxt.org](https://llmstxt.org) 标准，供 LLM/AI 搜索读取 |
 

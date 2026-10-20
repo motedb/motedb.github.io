@@ -57,6 +57,9 @@ rep('  "url": "https://motedb.github.io/",\n  "inLanguage": "zh-CN",',
     '  "url": "https://motedb.github.io/en/",\n  "inLanguage": "en",')
 
 # ── 4. 复制按钮静态文案 ─────────────────────────────────────────
+rep('https://motedb.github.io/og-zh.png', 'https://motedb.github.io/og-en.png', 3)
+rep('<meta property="og:image:alt" content="MoteDB — 具身智能的嵌入式多模态数据库">',
+    '<meta property="og:image:alt" content="MoteDB — Embedded multimodal database for embodied AI &amp; robotics">')
 rep('aria-label="菜单"', 'aria-label="Menu"')
 rep('data-copy="复制" data-ok="✓">复制</button>', 'data-copy="Copy" data-ok="✓">Copy</button>', 6)
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>MoteDB OG card template — render at 1200×630</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{--bg:#0a0f16;--txt:#e8eef5;--dim:#93a3b8;--faint:#5d6f85;--orange:#ff8a2b;--orange2:#ffb066;--line:#1b2739;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,'PingFang SC','Microsoft YaHei','Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .grid{position:absolute;inset:0;
+    background-image:linear-gradient(rgba(90,160,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(90,160,255,.06) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 80% at 30% 40%,#000 20%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 30% 40%,#000 20%,transparent 100%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.6}
+  .o1{width:520px;height:520px;right:-120px;top:-160px;background:radial-gradient(circle,rgba(255,138,43,.22),transparent 65%)}
+  .o2{width:460px;height:460px;left:-140px;bottom:-200px;background:radial-gradient(circle,rgba(74,158,255,.16),transparent 65%)}
+  .ekg{position:absolute;left:0;right:0;bottom:0;height:260px;opacity:.5}
+  .wrap{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:18px}
+  .brand img{height:56px}
+  .brand .word{font-size:34px;font-weight:800;letter-spacing:-.5px}
+  .brand .word b{color:var(--orange);font-weight:800}
+  .badge{margin-left:auto;font-family:var(--mono);font-size:17px;color:var(--orange2);border:1px solid rgba(255,138,43,.45);
+    background:rgba(255,138,43,.08);padding:8px 18px;border-radius:999px}
+  .title{font-size:66px;line-height:1.16;font-weight:800;letter-spacing:-1px;max-width:1000px}
+  .title em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--orange2) 60%,#ffd9ad);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:22px;font-size:27px;color:var(--dim);max-width:980px;line-height:1.45}
+  .foot{display:flex;align-items:center;gap:12px}
+  .chip{font-family:var(--mono);font-size:17px;color:var(--txt);border:1px solid #2a3a52;background:rgba(16,24,39,.85);
+    padding:9px 16px;border-radius:9px}
+  .chip.o{color:var(--orange2);border-color:rgba(255,138,43,.4)}
+  .url{margin-left:auto;font-family:var(--mono);font-size:19px;color:var(--faint)}
+  /* 英文卡: 标题稍小以容纳长句 */
+  html[lang=en] .title{font-size:58px;letter-spacing:-.8px}
+</style>
+</head>
+<body>
+<div class="grid"></div><div class="orb o1"></div><div class="orb o2"></div>
+<svg class="ekg" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#1b3a5f" stop-opacity=".25"/><stop offset=".6" stop-color="#ff8a2b" stop-opacity=".55"/><stop offset="1" stop-color="#ffb066" stop-opacity=".9"/></linearGradient></defs>
+  <path d="M -10 150 L 260 150 L 330 70 L 410 220 L 490 120 L 570 190 L 650 90 L 760 170 L 870 60 L 980 200 L 1090 110 L 1210 150" fill="none" stroke="url(#g)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
+<div class="wrap">
+  <div class="brand">
+    <img src="/logo-mark-dark.png" alt="">
+    <span class="word">mote<b>DB</b></span>
+    <span class="badge" id="badge">v0.15.0 · MIT 开源</span>
+  </div>
+  <div>
+    <div class="title" id="title">具身智能的<br><em>嵌入式多模态数据库</em></div>
+    <div class="sub" id="sub">The embedded multimodal database for embodied AI &amp; robotics</div>
+  </div>
+  <div class="foot" id="foot">
+    <span class="chip o">向量</span><span class="chip o">时序</span><span class="chip o">全文</span><span class="chip o">二进制</span>
+    <span class="chip">一个 SQL 引擎</span><span class="chip">Rust</span>
+    <span class="url">motedb.github.io</span>
+  </div>
+</div>
+<script>
+  if (new URLSearchParams(location.search).get('lang') === 'en') {
+    document.documentElement.lang = 'en';
+    document.getElementById('badge').textContent = 'v0.15.0 · MIT licensed';
+    document.getElementById('title').innerHTML = 'The <em>embedded multimodal database</em><br>for embodied AI &amp; robotics';
+    document.getElementById('sub').textContent = '具身智能的嵌入式多模态数据库 — vectors, time series, full text and binary in one SQL engine';
+    document.getElementById('foot').innerHTML =
+      '<span class="chip o">vectors</span><span class="chip o">time series</span><span class="chip o">full text</span><span class="chip o">binary</span>' +
+      '<span class="chip">one SQL engine</span><span class="chip">Rust</span><span class="url">motedb.github.io/en/</span>';
+  }
+</script>
+</body>
+</html>

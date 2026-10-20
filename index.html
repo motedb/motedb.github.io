@@ -18,11 +18,14 @@
 <meta property="og:url" content="https://motedb.github.io/">
 <meta property="og:title" content="MoteDB — 嵌入式多模态数据库 · 为具身智能与机器人而生">
 <meta property="og:description" content="面向具身智能与机器人的开源嵌入式多模态数据库：向量、时序、全文、二进制，一个 SQL 引擎。Rust 编写，零运维，MIT 协议。">
-<meta property="og:image" content="https://motedb.github.io/logo-lockup.png">
+<meta property="og:image" content="https://motedb.github.io/og-zh.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MoteDB — 具身智能的嵌入式多模态数据库">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MoteDB — The multimodal embedded database for embodied intelligence">
 <meta name="twitter:description" content="Vectors, time series, text and binary in one embedded SQL engine. Capture, transport, deploy — three forms, one experience. MIT licensed.">
-<meta name="twitter:image" content="https://motedb.github.io/logo-lockup.png">
+<meta name="twitter:image" content="https://motedb.github.io/og-zh.png">
 <meta name="theme-color" content="#0a0f16">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="llms-txt" href="/llms.txt">
@@ -34,14 +37,36 @@
   "name": "MoteDB",
   "url": "https://motedb.github.io/",
   "inLanguage": "zh-CN",
+  "image": "https://motedb.github.io/og-zh.png",
+  "softwareVersion": "0.15.0",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS, Linux, Windows",
   "description": "AI-native embedded multimodal database for embodied intelligence — vectors, time series, text and binary in one SQL engine. Rust, MIT licensed.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "license": "https://opensource.org/licenses/MIT",
   "codeRepository": "https://github.com/motedb/motedb",
+  "downloadUrl": "https://github.com/motedb/motedb/releases",
+  "author": { "@type": "Organization", "name": "MoteDB", "url": "https://github.com/motedb" },
+  "sameAs": [
+    "https://github.com/motedb/motedb",
+    "https://crates.io/crates/motedb",
+    "https://pypi.org/project/motedb-python/",
+    "https://docs.rs/motedb",
+    "https://dev.to/motedb"
+  ],
   "programmingLanguage": ["Rust", "Python", "JavaScript", "Go"],
   "keywords": "embedded database, embodied AI, vector search, time series, multimodal, MCAP, robotics"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MoteDB",
+  "alternateName": "motedb",
+  "url": "https://motedb.github.io/",
+  "inLanguage": ["zh-CN", "en"],
+  "publisher": { "@type": "Organization", "name": "MoteDB", "url": "https://github.com/motedb", "logo": "https://motedb.github.io/logo-mark-dark.png" }
 }
 </script>
 <style>
@@ -363,7 +388,7 @@
       <span class="ver-badge"><span class="dot"></span><span data-i18n="hero.badge">v0.15.0 · MIT 开源 · 正式发布</span></span>
       <p class="slogan"><span data-i18n="hero.t1">让机器人的记忆</span><br><em data-i18n="hero.t2">有了心跳</em></p>
       <h1 class="hero-h1" data-i18n="hero.h1">具身智能的<b>嵌入式多模态数据库</b></h1>
-      <p class="sub" data-i18n="hero.sub">MoteDB 用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。</p>
+      <p class="sub" data-i18n="hero.sub">MoteDB 是一个嵌入式数据库，用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，零运维，打开即用。</p>
       <div class="installs">
         <div class="inst"><span class="tag">RUST</span><code><span class="p">cargo</span> add motedb</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
         <div class="inst"><span class="tag">PYTHON</span><code><span class="p">pip</span> install motedb-python</code><button onclick="cp(this)" data-copy="复制" data-ok="✓">复制</button></div>
@@ -394,7 +419,7 @@
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="ft.tag">// FEATURES</div>
     <h2 class="reveal" data-i18n="ft.title">为具身 AI 工作负载而生</h2>
-    <p class="lead reveal" data-i18n="ft.lead">不是通用数据库的裁剪版——每个能力都对着机器人数据的真实形状设计。</p>
+    <p class="lead reveal" data-i18n="ft.lead">不是通用嵌入式数据库的裁剪版——每个能力都对着机器人数据的真实形状设计。</p>
     <div class="grid">
       <div class="card reveal">
         <div class="topline"></div>
@@ -515,13 +540,13 @@ db = Database.open_readonly(<span class="s">"fleet.mote"</span>)</pre></div>
   <div class="wrap">
     <div class="sec-tag reveal" data-i18n="why.tag">// WHY MOTEDB</div>
     <h2 class="reveal" data-i18n="why.title">为什么不用"拼一个"</h2>
-    <p class="lead reveal" data-i18n="why.lead">向量用扩展、时序靠手写、文本再装一个——三个存储、三种一致性、三份运维。MoteDB 把它们放回同一张表。</p>
+    <p class="lead reveal" data-i18n="why.lead">向量靠 SQLite 扩展、时序靠手写 SQL、全文再装一个库——三个存储、三种一致性、三份运维。MoteDB 把向量数据库、时序数据库和全文检索放回同一张表。</p>
     <div class="cmp-wrap reveal">
       <table class="cmp">
         <tr>
           <th data-i18n="why.h1">能力</th>
           <th class="hl">MoteDB</th>
-          <th data-i18n="why.h2">通用嵌入式 + 扩展拼装</th>
+          <th data-i18n="why.h2">SQLite + 扩展拼装</th>
           <th data-i18n="why.h3">文件 + 自研脚本</th>
         </tr>
         <tr><td data-i18n="why.r1">向量 KNN (索引加速)</td><td class="yes">●</td><td class="part" data-i18n="cmp.ext">▲ 扩展</td><td class="no">—</td></tr>
@@ -735,11 +760,11 @@ const I18N = {
     'hero.badge':'v0.15.0 · MIT 开源 · 正式发布',
     'hero.t1':'让机器人的记忆','hero.t2':'有了心跳',
     'hero.h1':'具身智能的<b>嵌入式多模态数据库</b>',
-    'hero.sub':'MoteDB 用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，嵌入式零运维，打开即用。',
+    'hero.sub':'MoteDB 是一个嵌入式数据库，用一个 SQL 引擎原生承载 <b>向量 · 时序 · 文本 · 二进制</b>；从采集、运输到部署，零运维，打开即用。',
     'npm.soon':'发布配置中','hero.cta1':'5 分钟上手','hero.cta2':'查看源码',
     'st.1':'引擎 · 三种形态','st.2':'官方 SDK','st.3':'平台预构建二进制','st.4':'模态：向量/时序/文本/BLOB','st.5':'轮独立发布审计',
     'ft.tag':'// FEATURES','ft.title':'为具身 AI 工作负载而生',
-    'ft.lead':'不是通用数据库的裁剪版——每个能力都对着机器人数据的真实形状设计。',
+    'ft.lead':'不是通用嵌入式数据库的裁剪版——每个能力都对着机器人数据的真实形状设计。',
     'f1.t':'多模态原生','f1.d':'<code>VECTOR(n)</code> 向量列带索引 KNN、<code>BLOB</code> 字节等值、全文检索与 <code>TIME_BUCKET</code> 时序聚合——同一个 SQL 引擎，同一个事务视图。',
     'f2.t':'三种形态一种体验','f2.d':'采集期是高性能目录，运输期是单文件快照（CRC 校验 + zstd），部署期是只读容器直开——<code>EXPORT DB</code> 一条 SQL 串联。',
     'f3.t':'嵌入式零运维','f3.d':'无服务、无端口、无独立进程。库文件即数据库，索引损坏自动从源数据重建，打开即用。',
@@ -768,8 +793,8 @@ const I18N = {
     'cap.t1':'向量 KNN','cap.t2':'时序窗口','cap.t3':'全文 + 向量混合','cap.t4':'BLOB / MCAP','cap.t5':'快照运输',
     'cap.note':'// 以上均为真实语法 — 与仓库测试同源, 非示意',
     'why.tag':'// WHY MOTEDB','why.title':'为什么不用"拼一个"',
-    'why.lead':'向量用扩展、时序靠手写、文本再装一个——三个存储、三种一致性、三份运维。MoteDB 把它们放回同一张表。',
-    'why.h1':'能力','why.h2':'通用嵌入式 + 扩展拼装','why.h3':'文件 + 自研脚本',
+    'why.lead':'向量靠 SQLite 扩展、时序靠手写 SQL、全文再装一个库——三个存储、三种一致性、三份运维。MoteDB 把向量数据库、时序数据库和全文检索放回同一张表。',
+    'why.h1':'能力','why.h2':'SQLite + 扩展拼装','why.h3':'文件 + 自研脚本',
     'why.r1':'向量 KNN (索引加速)','why.r2':'时序语义 (TIME_BUCKET / TTL / LATEST BY)',
     'why.r3':'全文检索 (BM25 + snippet)','why.r4':'多模态同一事务视图',
     'why.r5':'单文件快照 (CRC + zstd + 增量)','why.r6':'只读容器部署 (多读者)',
@@ -827,11 +852,11 @@ const I18N = {
     'hero.badge':'v0.15.0 · MIT · Generally available',
     'hero.t1':'Robot memories,','hero.t2':'with a heartbeat',
     'hero.h1':'The <b>embedded multimodal database</b> for embodied AI &amp; robotics',
-    'hero.sub':'MoteDB carries <b>vectors · time series · text · binary</b> in one embedded SQL engine — from capture to fleet distribution, zero-ops, ready on open.',
+    'hero.sub':'MoteDB is an embedded database that carries <b>vectors · time series · text · binary</b> in one SQL engine — from capture to fleet distribution, zero-ops, ready on open.',
     'npm.soon':'coming soon','hero.cta1':'Get started in 5 min','hero.cta2':'View source',
     'st.1':'engine · three forms','st.2':'official SDKs','st.3':'prebuilt platforms','st.4':'modalities: vector/ts/text/BLOB','st.5':'independent release audits',
     'ft.tag':'// FEATURES','ft.title':'Built for embodied-AI workloads',
-    'ft.lead':'Not a trimmed general-purpose database — every capability is shaped by the real anatomy of robot data.',
+    'ft.lead':'Not a trimmed general-purpose embedded database — every capability is shaped by the real anatomy of robotics data.',
     'f1.t':'Multimodal native','f1.d':'<code>VECTOR(n)</code> columns with indexed KNN, byte-exact <code>BLOB</code> equality, full-text search and <code>TIME_BUCKET</code> aggregation — one SQL engine, one transactional view.',
     'f2.t':'Three forms, one experience','f2.d':'Capture into a high-performance directory, ship as a single CRC-verified zstd snapshot, deploy as a read-only container — chained by one SQL statement.',
     'f3.t':'Embedded zero-ops','f3.d':'No server, no port, no sidecar process. The library file IS the database; corrupt indexes self-heal from source on open.',
@@ -860,8 +885,8 @@ const I18N = {
     'cap.t1':'Vector KNN','cap.t2':'Time windows','cap.t3':'Hybrid FTS+KNN','cap.t4':'BLOB / MCAP','cap.t5':'Snapshot shipping',
     'cap.note':'// All syntax is real — same as repository tests, not mockups',
     'why.tag':'// WHY MOTEDB','why.title':'Why not glue one together',
-    'why.lead':'One extension for vectors, hand-written SQL for time series, another install for text — three stores, three consistency models, three ops burdens. MoteDB puts them back in one table.',
-    'why.h1':'Capability','why.h2':'Generic embedded + extensions','why.h3':'Files + custom scripts',
+    'why.lead':'A SQLite extension for vectors, hand-written SQL for time series, another install for full text — three stores, three consistency models, three ops burdens. MoteDB puts the vector database, the time-series database and full-text search back into one table.',
+    'why.h1':'Capability','why.h2':'SQLite + extensions','why.h3':'Files + custom scripts',
     'why.r1':'Vector KNN (index-accelerated)','why.r2':'Time-series semantics (TIME_BUCKET / TTL / LATEST BY)',
     'why.r3':'Full-text search (BM25 + snippet)','why.r4':'All modalities in one transactional view',
     'why.r5':'Single-file snapshot (CRC + zstd + incremental)','why.r6':'Read-only container deploy (multi-reader)',
