@@ -222,6 +222,23 @@
   .sdk a.more{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--orange2);font-weight:600}
   .sdk a.more:hover{color:#ffd9ad}
 
+  /* ── 视频区块 ── */
+  .video-sec{padding:76px 0}
+  .video-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  @media(max-width:900px){.video-wrap{grid-template-columns:1fr;gap:28px}}
+  .video-frame{position:relative;border:1px solid var(--line2);border-radius:16px;overflow:hidden;
+               background:#0a101a;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .video-frame video{display:block;width:100%;height:auto;background:#0a101a}
+  .video-frame::after{content:'';position:absolute;inset:0;pointer-events:none;
+               background:linear-gradient(180deg,rgba(255,138,43,.07),transparent 42%)}
+  .video-side h2{font-size:34px;line-height:1.18;margin:0 0 14px}
+  .video-side .lead{margin-bottom:26px;max-width:420px}
+  .video-facts{display:grid;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+  .video-facts li{display:flex;align-items:baseline;gap:10px;font-family:var(--mono);
+                  font-size:13px;color:var(--dim)}
+  .video-facts b{color:var(--orange2);font-weight:600;white-space:nowrap}
+  .video-cta{display:flex;gap:12px;flex-wrap:wrap}
+
   .cta-band{position:relative;border-top:1px solid var(--line);background:
     radial-gradient(600px 200px at 50% 100%,rgba(255,138,43,.09),transparent 70%)}
   .cta-band .wrap{text-align:center;padding:70px 24px}
@@ -414,6 +431,34 @@
     <div><b><span class="cnt" data-n="3">0</span></b><span data-i18n="st.5">轮独立发布审计</span></div>
   </div>
 </div>
+
+<section id="watch" class="video-sec">
+  <div class="wrap">
+    <div class="sec-tag reveal" data-i18n="vid.tag">// WATCH</div>
+    <h2 class="reveal" data-i18n="vid.title">60 秒，看完 MoteDB</h2>
+    <p class="lead reveal" data-i18n="vid.lead">一个 SQL 引擎，四种模态 —— 以及它跑出来的真实数字。</p>
+    <div class="video-wrap">
+      <div class="video-frame reveal">
+        <video controls preload="metadata" playsinline
+               poster="/media/poster-hero.jpg"
+               src="/media/motedb-promo.mp4"
+               aria-label="MoteDB 宣传片"></video>
+      </div>
+      <div class="video-side reveal">
+        <ul class="video-facts">
+          <li><b>1.76ms</b><span data-i18n="vid.f1">1M 行 ORDER BY ts DESC LIMIT 10（原 1.2s，680×）</span></li>
+          <li><b>1.5ms</b><span data-i18n="vid.f2">DiskANN 尾部延迟 p99（原 30ms，同 recall 档）</span></li>
+          <li><b>4.4×</b><span data-i18n="vid.f3">50 表打开 77ms → 17.6ms（脏 checkpoint 42 → 24.6ms）</span></li>
+          <li><b>3 轮</b><span data-i18n="vid.f4">发布前独立审计，修复 10 项问题</span></li>
+        </ul>
+        <div class="video-cta">
+          <a class="btn primary" href="https://github.com/motedb/motedb" target="_blank" rel="noopener" data-i18n="vid.b1">GitHub 仓库</a>
+          <a class="btn ghost" href="/media/motedb-promo.mp4" data-i18n="vid.b2">下载视频</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
@@ -637,8 +682,8 @@ db.execute(<span class="s">"EXPORT DB TO 'fleet.mote'"</span>)<span class="curso
     <h2 class="reveal" data-i18n="ql.title">为边缘设备写的每一行, 都按内核标准验证</h2>
     <p class="lead reveal" data-i18n="ql.lead">嵌入式的故障不可回滚、不可远程修复。所以发布前要过的是这些——不是营销数字, 是仓库里可复现的门禁。</p>
     <div class="qgrid">
-      <div class="qcard reveal"><b>3 × 10</b><span data-i18n="ql.q1">轮独立发布审计 · 修复 10 项问题 (含 2 项 10 万行级存量 bug)</span></div>
-      <div class="qcard reveal"><b>0</b><span data-i18n="ql.q2">clippy 告警 · 全目标 (lib/tests/examples) 零警告</span></div>
+      <div class="qcard reveal"><b>3</b><span data-i18n="ql.q1">轮独立发布审计 · 修复 10 项问题 (含存量索引静默失效)</span></div>
+      <div class="qcard reveal"><b>260</b><span data-i18n="ql.q2">个集成测试二进制 · 4396 个测试函数</span></div>
       <div class="qcard reveal"><b>4.4×</b><span data-i18n="ql.q3">打开提速 (50 表库 77ms → 17.6ms, 有界常量)</span></div>
       <div class="qcard reveal"><b>24.6ms</b><span data-i18n="ql.q4">50 表 checkpoint, 表数平坦化 (原 42ms 线性)</span></div>
       <div class="qcard reveal"><b data-i18n="ql.n5">CI 矩阵</b><span data-i18n="ql.q5">崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁</span></div>
@@ -736,6 +781,15 @@ const I18N = {
   zh: {
     'nav.f':'特性','nav.a':'架构','nav.q':'快速开始','nav.s':'SDK',
     'copy':'复制','ok':'已复制 ✓',
+    'vid.tag':'// WATCH',
+    'vid.title':'60 秒，看完 MoteDB',
+    'vid.lead':'一个 SQL 引擎，四种模态 —— 以及它跑出来的真实数字。',
+    'vid.f1':'1M 行 ORDER BY ts DESC LIMIT 10（原 1.2s，680×）',
+    'vid.f2':'DiskANN 尾部延迟 p99（原 30ms，同 recall 档）',
+    'vid.f3':'50 表打开 77ms → 17.6ms（脏 checkpoint 42 → 24.6ms）',
+    'vid.f4':'发布前独立审计，修复 10 项问题',
+    'vid.b1':'GitHub 仓库',
+    'vid.b2':'下载视频',
     'code.c1':'-- 位姿表中语义最近的 5 条 (索引加速)',
     'code.c2':'-- 60 秒窗口聚合 + 自动 TTL 过期',
     'code.c3':'-- 混合检索: 全文 (BM25) × 向量 (KNN) RRF 融合',
@@ -803,11 +857,11 @@ const I18N = {
     'why.hint':'← 左右滑动查看 →',
     'ql.tag':'// ENGINEERING','ql.title':'为边缘设备写的每一行, 都按内核标准验证',
     'ql.lead':'嵌入式的故障不可回滚、不可远程修复。所以发布前要过的是这些——不是营销数字, 是仓库里可复现的门禁。',
-    'ql.q1':'轮独立发布审计 · 修复 10 项问题 (含 2 项 10 万行级存量 bug)',
-    'ql.q2':'clippy 告警 · 全目标 (lib/tests/examples) 零警告',
+    'ql.q1':'轮独立发布审计 · 修复 10 项问题 (含存量索引静默失效)',
+    'ql.q2':'个集成测试二进制 · 4396 个测试函数',
     'ql.q3':'打开提速 (50 表库 77ms → 17.6ms, 有界常量)',
     'ql.q4':'50 表 checkpoint, 表数平坦化 (原 42ms 线性)',
-    'ql.q5':'崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁',
+    'ql.q5':'fmt 严格门禁 · cargo-deny 供应链审计 · 崩溃注入 · 差分模糊 · 腐坏恢复 · perf-gate 比值门禁',
     'ql.q6':'预构建逐平台冒烟 — 交叉编译产物经真实加载验证',
     'ai.tag':'// AI-NATIVE','ai.title':'为 AI 栈而设计，也让 AI 读懂',
     'ai.lead':'具身智能的下游就是 AI：语义检索、训练管线、智能体。MoteDB 把这些做进产品，而不是留给用户拼装。',
@@ -828,6 +882,15 @@ const I18N = {
   en: {
     'nav.f':'Features','nav.a':'Architecture','nav.q':'Quickstart','nav.s':'SDK',
     'copy':'Copy','ok':'Copied ✓',
+    'vid.tag':'// WATCH',
+    'vid.title':'MoteDB in 60 seconds',
+    'vid.lead':'One SQL engine, four modalities — and the real numbers it produces.',
+    'vid.f1':'1M-row ORDER BY ts DESC LIMIT 10 (was 1.2s, 680×)',
+    'vid.f2':'DiskANN tail latency p99 (was 30ms, same recall tier)',
+    'vid.f3':'50-table open 77ms → 17.6ms (dirty checkpoint 42 → 24.6ms)',
+    'vid.f4':'pre-release audits, 10 issues fixed',
+    'vid.b1':'GitHub repo',
+    'vid.b2':'Download the video',
     'code.c1':'-- 5 semantically nearest rows in the pose table (index-accelerated)',
     'code.c2':'-- 60-second window aggregation + automatic TTL expiry',
     'code.c3':'-- Hybrid retrieval: full text (BM25) × vector (KNN), RRF fusion',
@@ -895,11 +958,11 @@ const I18N = {
     'why.hint':'← scroll sideways →',
     'ql.tag':'// ENGINEERING','ql.title':'Every line written for edge devices, validated to kernel standards',
     'ql.lead':'Edge failures cannot be rolled back or hot-fixed remotely. So releases pass through these gates — not marketing numbers, reproducible checks in the repository.',
-    'ql.q1':'independent release audits · 10 issues fixed (incl. two at 100K-row scale)',
-    'ql.q2':'clippy warnings · zero across lib/tests/examples',
+    'ql.q1':'pre-release audits · 10 issues fixed (incl. silent index loss)',
+    'ql.q2':'integration test binaries · 4,396 test functions',
     'ql.q3':'faster opens (50-table DB: 77ms → 17.6ms, bounded constant)',
     'ql.q4':'50-table checkpoint, flat in table count (was 42ms linear)',
-    'ql.q5':'crash injection · differential fuzz · corruption recovery · perf-gate budgets',
+    'ql.q5':'strict fmt gate · cargo-deny supply-chain audit · crash injection · differential fuzz · corruption recovery · perf-gate budgets',
     'ql.q6':'prebuilt binaries smoke-tested per platform — cross-compiled outputs load-tested for real',
     'ai.tag':'// AI-NATIVE','ai.title':'Designed for the AI stack — and readable by AI',
     'ai.lead':'The downstream of embodied intelligence is AI: semantic retrieval, training pipelines, agents. MoteDB builds these in rather than leaving them to the user.',

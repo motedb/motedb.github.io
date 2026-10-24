@@ -56,6 +56,10 @@ rep('<meta name="twitter:title" content="MoteDB — The multimodal embedded data
 rep('  "url": "https://motedb.github.io/",\n  "inLanguage": "zh-CN",',
     '  "url": "https://motedb.github.io/en/",\n  "inLanguage": "en",')
 
+# ── 3.5 视频资源切英文（中文页 /media/motedb-promo.mp4，英文页 …-en.mp4）──
+rep('/media/motedb-promo.mp4', '/media/motedb-promo-en.mp4', 2)
+rep('aria-label="MoteDB 宣传片"', 'aria-label="MoteDB promo video"')
+
 # ── 4. 复制按钮静态文案 ─────────────────────────────────────────
 rep('https://motedb.github.io/og-zh.png', 'https://motedb.github.io/og-en.png', 3)
 rep('<meta property="og:image:alt" content="MoteDB — 具身智能的嵌入式多模态数据库">',
