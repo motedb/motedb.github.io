@@ -22,7 +22,10 @@ MoteDB stores robot data — poses, embeddings, sensor logs, binary frames — i
 - Full-text search: BM25 ranking with snippet extraction
 - Hybrid retrieval: BM25 × vector KNN fused with Reciprocal Rank Fusion
 - BLOB columns with byte-exact equality
-- MCAP (robotics capture) import
+- MCAP (robotics capture) import: one queryable table per topic, Python decode
+  hooks for typed columns — docs/21-mcap-import.md
+- CI-verified correctness: ~6,400-shape query matrix + reopen/DML/multimodal
+  sweeps against brute-force oracles (see CHANGELOG 0.18.3-0.18.4)
 - Single-file snapshots: EXPORT DB TO 'snap.mote' — per-file CRC32, optional zstd
 - Read-only containers: open_readonly(), multi-reader co-existence
 - Arrow/pandas interop: query_arrow() returns pyarrow.Table (vectors as FixedSizeList<float32>)
