@@ -50,7 +50,7 @@ tbl = db.query_arrow("SELECT ts, sid, emb FROM poses")
    beside one writer process (shared flock, strict clean-open check,
    zero disk writes from readers).
 
-## Operations profile (v0.15.0 measurements, current 0.18.1)
+## Operations profile (v0.15.0 measurements, current 0.18.4)
 
 - Bounded fixed overhead: file count ≈ 3 + tables + indexes; opens do not
   degrade with history (manifest compaction, lazy files).
@@ -60,6 +60,12 @@ tbl = db.query_arrow("SELECT ts, sid, emb FROM poses")
 - Insert throughput ~0.5M rows/s (4 threads, narrow rows, group-commit WAL).
 
 ## Validation
+
+- Path-matrix correctness sweep in CI: ~6,400 query shapes (WHERE x ORDER BY x
+  paging x projection) plus reopen-consistency, DML-mirror, aggregate/vector/
+  spatial and JOIN/subquery/window matrices, each validated against a
+  brute-force Rust oracle (both executor modes). 0.18.3-0.18.4 fixed 11
+  silent-wrong-result classes and 2 panes found by these sweeps.
 
 - Crash-injection and corruption-recovery test suites
 - Differential fuzzing against reference semantics
